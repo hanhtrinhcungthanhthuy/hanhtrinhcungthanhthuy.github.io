@@ -1,0 +1,4251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Trạm Dinh Dưỡng — Lắng Nghe Cơ Thể • Ăn Đúng Uống Lành Cùng Thanh Thủy</title>
+  <meta name="description" content="Trạm Dinh Dưỡng — Ứng dụng lắng nghe tín hiệu cơ thể, ăn đúng uống lành, tra cứu cẩm nang dinh dưỡng tự nhiên và thấu hiểu cơ thể cùng Thanh Thủy.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+
+  <!-- Google Fonts: Be Vietnam Pro & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM - THẤU THÂN TÂM (NATURAL WELLNESS & WARMTH)
+       ========================================================================== */
+    :root {
+      --bg-cream: #FBF9F5;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-accent: #F4EFEA;
+      --primary-dark: #204031;
+      --primary: #2D5A43;
+      --primary-light: #447B5E;
+      --primary-subtle: #E8F1EC;
+      --sage: #88A693;
+      --warm-peach: #E99B77;
+      --warm-terracotta: #C8734C;
+      --gold-accent: #D4A359;
+      --text-main: #273830;
+      --text-muted: #5E7267;
+      --text-light: #8E9F96;
+      --border-subtle: #E5ECE7;
+      --border-focus: #447B5E;
+      --shadow-sm: 0 2px 8px rgba(32, 64, 49, 0.04);
+      --shadow-md: 0 8px 24px rgba(32, 64, 49, 0.08);
+      --shadow-lg: 0 16px 40px rgba(32, 64, 49, 0.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .app-container {
+      max-width: 680px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: var(--bg-surface);
+      box-shadow: 0 0 50px rgba(0,0,0,0.03);
+    }
+
+    /* Header */
+    .app-header {
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+
+    .brand-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .header-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--primary-subtle);
+      color: var(--primary-dark);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .header-contact-btn:hover {
+      background: #D9E8E0;
+      color: var(--primary-dark);
+      border-color: var(--sage);
+    }
+
+    /* Top Sub-Nav (3 Tab chính: Bài Test • Tự Đánh Biểu Hiện • Cẩm Nang) */
+    .app-sub-nav {
+      display: flex;
+      background: var(--bg-cream);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 6px 12px;
+      gap: 6px;
+      overflow-x: auto;
+    }
+
+    .sub-nav-btn {
+      flex: 1;
+      min-width: fit-content;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .sub-nav-btn.active {
+      background: #FFFFFF;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sub-nav-btn i {
+      font-size: 0.88rem;
+    }
+
+    /* Progress bar */
+    .progress-bar-container {
+      background: var(--bg-accent);
+      height: 4px;
+      width: 100%;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      background: linear-gradient(90deg, var(--sage), var(--primary));
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* Content Area */
+    .content-area {
+      flex: 1;
+      padding: 24px 20px 40px;
+    }
+
+    /* Screen Views */
+    .view-panel {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .view-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --------------------------------------------------------------------------
+       WELCOME SCREEN
+       -------------------------------------------------------------------------- */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--primary-subtle);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .hero-lead {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .quote-box {
+      background: #F8F6F1;
+      border-left: 3px solid var(--warm-terracotta);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      font-style: italic;
+      color: #4A5D53;
+      font-size: 0.93rem;
+    }
+
+    /* Dual Action Cards on Welcome Screen */
+    .welcome-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 480px) {
+      .welcome-actions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .action-entry-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .action-entry-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .action-entry-card.highlight {
+      background: linear-gradient(135deg, #F3F9F5 0%, #EBF4EF 100%);
+      border-color: #B9D7C5;
+    }
+
+    .aec-icon {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .aec-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .aec-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .aec-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .steps-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .preview-step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      background: var(--bg-cream);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .preview-step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .preview-step-text h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 2px;
+    }
+
+    .preview-step-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* --------------------------------------------------------------------------
+       FORM COMPONENTS & STEP NAVIGATION
+       -------------------------------------------------------------------------- */
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .step-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--warm-terracotta);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .step-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Question Groups */
+    .question-cluster {
+      margin-bottom: 26px;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+    }
+
+    .cluster-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #D9E3DC;
+    }
+
+    .cluster-title i {
+      color: var(--warm-terracotta);
+    }
+
+    .checklist-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Custom Checkbox Card */
+    .check-card {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 14px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .check-card:hover {
+      border-color: var(--sage);
+      background: #FAFCFA;
+      transform: translateY(-1px);
+    }
+
+    .check-card.checked {
+      border-color: var(--primary);
+      background: #F2F8F4;
+    }
+
+    .check-box-fake {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1.5px solid #A8BDB1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      flex-shrink: 0;
+      transition: var(--transition);
+      background: #FFF;
+    }
+
+    .check-card.checked .check-box-fake {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFF;
+    }
+
+    .check-box-fake i {
+      font-size: 0.72rem;
+      display: none;
+    }
+
+    .check-card.checked .check-box-fake i {
+      display: block;
+    }
+
+    .check-label-text {
+      font-size: 0.91rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .check-hint {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    /* Radio Group (Step 2 - 7 Days Habit) */
+    .radio-question-box {
+      margin-bottom: 22px;
+      padding: 18px 16px;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .radio-question-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .radio-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .radio-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .radio-card:hover {
+      border-color: var(--sage);
+      background: #FAFCFA;
+    }
+
+    .radio-card.selected {
+      border-color: var(--primary);
+      background: #F2F8F4;
+    }
+
+    .radio-circle-fake {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid #A8BDB1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+      background: #FFF;
+    }
+
+    .radio-card.selected .radio-circle-fake {
+      border-color: var(--primary);
+    }
+
+    .radio-card.selected .radio-circle-fake::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    /* Multi-select Habit Cards (Step 2) */
+    .habit-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .habit-card:hover {
+      border-color: var(--sage);
+      background: #FAFCFA;
+    }
+
+    .habit-card.selected {
+      border-color: var(--primary);
+      background: #F2F8F4;
+    }
+
+    .habit-check-fake {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1.5px solid #A8BDB1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+      background: #FFF;
+      color: transparent;
+      font-size: 0.75rem;
+    }
+
+    .habit-card.selected .habit-check-fake {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .habit-label {
+      font-size: 0.89rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .radio-label {
+      font-size: 0.89rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    /* --------------------------------------------------------------------------
+       BẢNG SOI CHIẾU 7 HỆ CƠ THỂ (DASHBOARD KẾT QUẢ)
+       -------------------------------------------------------------------------- */
+    .systems-overview-box {
+      margin-bottom: 24px;
+      padding: 20px 18px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .systems-overview-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .systems-overview-header h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .systems-overview-sub {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .systems-status-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .system-status-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-cream);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .system-status-item.is-warn {
+      background: #FFFBF7;
+      border-color: #FFE0B2;
+    }
+
+    .system-status-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .system-status-icon {
+      font-size: 1.25rem;
+      width: 28px;
+      text-align: center;
+    }
+
+    .system-status-name {
+      font-size: 0.89rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .system-status-note {
+      font-size: 0.77rem;
+      color: var(--text-light);
+      margin-top: 1px;
+    }
+
+    .system-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .system-status-badge.warning {
+      background: #FFF3E0;
+      color: #E65100;
+      border: 1px solid #FFE082;
+    }
+
+    .system-status-badge.good {
+      background: #E8F5E9;
+      color: #2E7D32;
+      border: 1px solid #C8E6C9;
+    }
+
+    /* --------------------------------------------------------------------------
+       BUTTONS
+       -------------------------------------------------------------------------- */
+    .btn-group-nav {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn-main {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-full);
+      font-size: 0.96rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(45, 90, 67, 0.25);
+      text-decoration: none;
+    }
+
+    .btn-main:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(45, 90, 67, 0.35);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px 20px;
+      background: var(--bg-accent);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: #E8E0D7;
+    }
+
+    /* --------------------------------------------------------------------------
+       RESULT SCREEN (THẨM THẤU & SOÁI CHIẾU)
+       -------------------------------------------------------------------------- */
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      background: #FBEBE3;
+      color: var(--warm-terracotta);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .result-summary-card {
+      background: linear-gradient(135deg, #F8FAF8 0%, #EFF5F1 100%);
+      border: 1px solid #D5E4DB;
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .result-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .result-voice-box {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-top: 16px;
+      text-align: left;
+      border-left: 3px solid var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-voice-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .result-voice-desc {
+      font-size: 0.91rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Detailed Insights Layers */
+    .insight-block {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 18px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .insight-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .insight-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    .icon-mind { background: #EBF2EE; color: var(--primary); }
+    .icon-gut { background: #FEF3EB; color: var(--warm-terracotta); }
+    .icon-body { background: #F6EDFC; color: #8447A8; }
+
+    .insight-header-text h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .insight-header-text span {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    .insight-body {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    .insight-highlight {
+      background: #FBF8F3;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 0.86rem;
+      color: #68492C;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* Immediate Action Box in Result (Ăn gì • Uống gì • Làm gì) */
+    .immediate-remedies-box {
+      background: #FFFFFF;
+      border: 1.5px solid #CDE2D5;
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .immediate-remedies-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .immediate-remedies-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .remedy-card-item {
+      background: var(--bg-cream);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .remedy-card-header {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remedy-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .remedy-sub-col {
+      background: #FFFFFF;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .remedy-sub-col strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 3px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* 3 Action Pillars */
+    .action-pillars-card {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      margin-bottom: 26px;
+    }
+
+    .pillars-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .pillar-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      background: #FFFFFF;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .pillar-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .pillar-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pillar-content h5 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 3px;
+    }
+
+    .pillar-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Thanh Thủy Personal Connect Box */
+    .thuy-connect-box {
+      background: linear-gradient(135deg, #2D5A43 0%, #1E3D2E 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(32, 64, 49, 0.2);
+    }
+
+    .thuy-avatar-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+      margin: 0 auto 12px;
+      overflow: hidden;
+      background: #E8F1EC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .thuy-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .thuy-title {
+      font-size: 0.82rem;
+      opacity: 0.88;
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .thuy-message {
+      font-size: 0.89rem;
+      line-height: 1.6;
+      opacity: 0.95;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    .btn-zalo-direct {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      background: #FFFFFF;
+      color: #0068FF;
+      font-size: 0.98rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-zalo-direct:hover {
+      background: #F0F5FF;
+      transform: translateY(-2px);
+    }
+
+    /* --------------------------------------------------------------------------
+       VIEW: GÓC GIÃI BÀY THÂN TÂM (KHÁCH TỰ ĐÁNH CHỮ BIỂU HIỆN)
+       -------------------------------------------------------------------------- */
+    .freeform-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .freeform-header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .freeform-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .freeform-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .freeform-textarea {
+      width: 100%;
+      min-height: 110px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid #CFDDD4;
+      background: #FAFCFA;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      outline: none;
+      resize: vertical;
+      transition: var(--transition);
+      margin-bottom: 12px;
+    }
+
+    .freeform-textarea:focus {
+      border-color: var(--primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(45, 90, 67, 0.12);
+    }
+
+    /* Tag chips */
+    .chip-tags-group {
+      margin-bottom: 18px;
+    }
+
+    .chip-tags-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .chip-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip-tag-item {
+      padding: 5px 12px;
+      background: var(--bg-cream);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      color: var(--primary-dark);
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition);
+    }
+
+    .chip-tag-item:hover {
+      background: var(--primary-subtle);
+      border-color: var(--sage);
+    }
+
+    /* AI Analysis Response Card */
+    .ai-response-card {
+      display: none;
+      background: linear-gradient(135deg, #F8FAF8 0%, #F1F7F3 100%);
+      border: 1.5px solid #C8DDD0;
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+      margin-top: 20px;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .air-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #C8D8CE;
+    }
+
+    .air-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .air-title h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .air-title span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .air-message {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      margin-bottom: 14px;
+      font-style: italic;
+      background: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--warm-terracotta);
+    }
+
+    /* Option to talk to Thủy (Warm & Optional) */
+    .optional-connect-box {
+      margin-top: 22px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .ocb-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .ocb-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .ocb-btn-zalo {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: #0068FF;
+      color: #FFFFFF;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .ocb-btn-zalo:hover {
+      background: #0056D6;
+    }
+
+    .ocb-btn-call {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: var(--bg-cream);
+      color: var(--primary-dark);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .ocb-btn-call:hover {
+      background: #E8E0D7;
+    }
+
+    /* --------------------------------------------------------------------------
+       VIEW: CẨM NANG TỰ VẤN (TRA CỨU DẤU HIỆU: NÊN ĂN GÌ • UỐNG GÌ • LÀM GÌ)
+       -------------------------------------------------------------------------- */
+    .handbook-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .handbook-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .handbook-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .handbook-search-box {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .handbook-search-input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--border-subtle);
+      background: var(--bg-cream);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .handbook-search-input:focus {
+      border-color: var(--primary);
+      background: #FFF;
+      box-shadow: 0 0 0 3px rgba(45, 90, 67, 0.1);
+    }
+
+    .handbook-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Accordion / Card Item */
+    .hb-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .hb-card:hover {
+      border-color: var(--sage);
+    }
+
+    .hb-card-trigger {
+      padding: 16px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #FFFFFF;
+      transition: var(--transition);
+    }
+
+    .hb-card.open .hb-card-trigger {
+      background: var(--bg-cream);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hb-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hb-icon-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      background: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .hb-title-text h4 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.3;
+    }
+
+    .hb-title-text span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hb-arrow {
+      color: var(--text-light);
+      transition: transform 0.3s ease;
+    }
+
+    .hb-card.open .hb-arrow {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .hb-content {
+      display: none;
+      padding: 16px 18px 20px;
+      background: #FAFCFA;
+    }
+
+    .hb-card.open .hb-content {
+      display: block;
+    }
+
+    .hb-section-row {
+      margin-bottom: 12px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+
+    .hb-section-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .hb-row-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .label-drink { color: #2B7A78; }
+    .label-food { color: var(--warm-terracotta); }
+    .label-act { color: #8447A8; }
+
+    .hb-row-text {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .hb-row-text ul {
+      margin-left: 18px;
+      margin-top: 4px;
+    }
+
+    .hb-row-text li {
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+    .app-footer {
+      padding: 24px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-cream);
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .footer-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--primary);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #273830;
+      color: #FFF;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 999;
+      box-shadow: var(--shadow-md);
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Print / Share Clean */
+    @media print {
+      .app-header, .app-sub-nav, .btn-group-nav, .btn-zalo-direct, .header-contact-btn {
+        display: none !important;
+      }
+      .app-container {
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+  
+    /* --------------------------------------------------------------------------
+       BÓC TÁCH MẮT XÍCH NGẦM THÂN TÂM (TAB 2: GÓC GIÃI BÀY THÂN TÂM)
+       -------------------------------------------------------------------------- */
+    .chain-box {
+      background: linear-gradient(145deg, #ffffff 0%, #f7faf8 100%);
+      border: 1.5px solid #d2e4da;
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 18px rgba(36, 74, 56, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .chain-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(36, 74, 56, 0.09);
+    }
+
+    .chain-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #d5e5dc;
+    }
+
+    .chain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #e8f4ed;
+      color: #276749;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      border: 1px solid #cce5d6;
+    }
+
+    .chain-title-wrap {
+      flex: 1;
+    }
+
+    .chain-title-wrap h5 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #1e3a2b;
+      margin: 0 0 4px 0;
+      line-height: 1.35;
+    }
+
+    .chain-badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #2c7a52;
+      background: #dff0e6;
+      padding: 3px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .chain-row {
+      margin-bottom: 15px;
+    }
+
+    .chain-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .chain-row-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #23523b;
+      margin-bottom: 7px;
+    }
+
+    .chain-row-label i {
+      color: #38a169;
+      font-size: 14px;
+    }
+
+    .chain-row-content {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #334155;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 13px 16px;
+      border: 1px solid #e7efe9;
+    }
+
+    .chain-diagram-pill {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      background: #edf7f1;
+      border: 1px solid #c4e4d2;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1c4933;
+    }
+
+    .chain-diagram-pill .chain-arrow {
+      color: #2e7d32;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .chain-root-highlight {
+      background: #fdfcf7;
+      border: 1px solid #fae8cb;
+      border-left: 4px solid #dd6b20;
+    }
+
+    .chain-root-highlight .chain-row-label {
+      color: #b75306;
+    }
+
+    .chain-quote-highlight {
+      background: #f3faf6;
+      border: 1px solid #c6ebd7;
+      border-left: 4px solid #2e7d32;
+      font-style: italic;
+      color: #1b4d36;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Đổi phong cách nút gọi và nhắn Zalo trong optional-connect-box */
+    .ocb-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .ocb-btn-call {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #244a38 0%, #173426 100%);
+      color: #FFFFFF !important;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(36, 74, 56, 0.25);
+      transition: var(--transition);
+      border: none;
+    }
+
+    .ocb-btn-call:hover {
+      background: #153123;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(36, 74, 56, 0.35);
+    }
+
+    .ocb-btn-zalo {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      background: #0068FF;
+      color: #FFFFFF !important;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 104, 255, 0.25);
+      transition: var(--transition);
+      border: none;
+    }
+
+    .ocb-btn-zalo:hover {
+      background: #0056D6;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 104, 255, 0.35);
+    }
+
+  
+    /* --------------------------------------------------------------------------
+       TIỆN ÍCH CẨM NANG: SAO CHÉP & TẢI PDF / IN
+       -------------------------------------------------------------------------- */
+    .handbook-actions-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hb-act-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1.5px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-copy-all {
+      background: #FFFFFF;
+      color: var(--primary-dark);
+      border-color: #C8DDD0;
+      box-shadow: 0 2px 8px rgba(36, 74, 56, 0.06);
+    }
+
+    .btn-copy-all:hover {
+      background: #F4F9F5;
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .btn-print-pdf {
+      background: linear-gradient(135deg, #2D5A43 0%, #1E3D2E 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(36, 74, 56, 0.22);
+    }
+
+    .btn-print-pdf:hover {
+      background: #173426;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(36, 74, 56, 0.32);
+    }
+
+    /* Nút sao chép từng mục trong thẻ cẩm nang */
+    .hb-card-footer {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 14px;
+      margin-top: 14px;
+      border-top: 1px dashed #E2ECE5;
+    }
+
+    .hb-card-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #F3F8F5;
+      color: #2D5A43;
+      border: 1px solid #C8DDD0;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .hb-card-copy-btn:hover {
+      background: #E5F2EA;
+      color: #173426;
+      border-color: #2D5A43;
+    }
+
+    /* Print only header */
+    .print-only-header {
+      display: none;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+      .app-header, .app-sub-nav, .btn-group-nav, .btn-zalo-direct, .header-contact-btn,
+      .handbook-search-box, .handbook-actions-bar, .hb-card-footer, .toast-notification {
+        display: none !important;
+      }
+      .app-container {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .view-panel {
+        display: none !important;
+      }
+      #viewHandbook {
+        display: block !important;
+      }
+      .hb-card {
+        break-inside: avoid;
+        margin-bottom: 20px !important;
+        border: 1px solid #CCCCCC !important;
+        box-shadow: none !important;
+      }
+      .hb-card .hb-content {
+        display: block !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        padding-top: 14px !important;
+      }
+      .hb-arrow {
+        display: none !important;
+      }
+      .print-only-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #2D5A43;
+      }
+      .print-only-header h2 {
+        font-size: 20pt;
+        color: #2D5A43;
+        margin: 0 0 6px 0;
+      }
+      .print-only-header p {
+        font-size: 11pt;
+        color: #555555;
+        margin: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top App Header -->
+    <header class="app-header">
+      <div onclick="switchAppTab('test')" class="brand-group" id="headerHomeBtn">
+        <div>
+          <div class="brand-title">Trạm Dinh Dưỡng</div>
+          <div class="brand-desc">Lắng Nghe Cơ Thể • Ăn Đúng Uống Lành Cùng Thanh Thủy</div>
+        </div>
+      </div>
+      <a href="https://zalo.me/0978864099" target="_blank" class="header-contact-btn" id="headerZaloBtn">
+        Trò chuyện cùng Thủy
+      </a>
+    </header>
+
+    <!-- Top Sub-Navigation (3 Tab chuyển đổi mượt mà) -->
+    <nav class="app-sub-nav">
+      <button type="button" class="sub-nav-btn active" id="tabBtnTest" onclick="switchAppTab('test')">
+        Bài Test Thấu Hiểu
+      </button>
+      <button type="button" class="sub-nav-btn" id="tabBtnFreeform" onclick="switchAppTab('freeform')">
+        Tự Đánh Biểu Hiện
+      </button>
+      <button type="button" class="sub-nav-btn" id="tabBtnHandbook" onclick="switchAppTab('handbook')">
+        Cẩm Nang (Ăn • Uống • Làm)
+      </button>
+    </nav>
+
+    <!-- Progress Indicator Bar (Dành cho quy trình test) -->
+    <div class="progress-bar-container" id="progressBarContainer">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Main Content Flow -->
+    <main class="content-area">
+
+      <!-- ======================================================================
+           VIEW 1: MÀN HÌNH CHÀO (GIỚI THIỆU & CHẠM CẢM XÚC)
+           ====================================================================== -->
+      <section class="view-panel active" id="viewWelcome">
+        <div class="hero-badge">
+          Không phán xét • Không áp lực
+        </div>
+        
+        <h1 class="hero-heading">Cơ thể bạn đang muốn nói điều gì?</h1>
+        
+        <p class="hero-lead">
+          Đôi khi trong guồng quay bận rộn, mình vô tình lướt qua những cơn mệt mỏi, những đêm khó ngủ hay nhịp ăn uống vội vã. Hãy dành cho chính mình <strong>những phút giây tĩnh lặng</strong> để lắng nghe lại ngôi nhà thân thể.
+        </p>
+
+        <div class="quote-box">
+          "Cơ thể luôn thì thầm trước khi cất tiếng kêu cứu. Khi tinh thần được an yên, giấc ngủ tròn vẹn thì thức ăn mới nuôi dưỡng được trọn vẹn thân tâm."
+          <div style="margin-top: 6px; font-weight: 600; font-style: normal; color: var(--primary-dark); font-size: 0.82rem;">
+            — Thanh Thủy
+          </div>
+        </div>
+
+
+
+        <div class="steps-preview">
+          <div class="preview-step-item">
+            <div class="preview-step-num">1</div>
+            <div class="preview-step-text">
+              <h4>Lắng nghe 12 tín hiệu đời thường</h4>
+              <p>Nhận diện những biểu hiện nhẹ nhàng về giấc ngủ, tiêu hóa và sự căng thẳng hàng ngày.</p>
+            </div>
+          </div>
+
+          <div class="preview-step-item">
+            <div class="preview-step-num">2</div>
+            <div class="preview-step-text">
+              <h4>Nhìn lại nhịp sống 7 ngày qua</h4>
+              <p>Truy vết tự nhiên những món bạn đã ăn, thói quen uống nước và khoảng thời gian cho bản thân.</p>
+            </div>
+          </div>
+
+          <div class="preview-step-item">
+            <div class="preview-step-num">3</div>
+            <div class="preview-step-text">
+              <h4>Bản Soi Chiếu & Lời khuyên nuôi dưỡng</h4>
+              <p>Hiểu gốc rễ vì sao cơ thể mỏi mệt và nhận 3 bước vỗ về Thân - Tâm nhẹ nhàng, ấm áp.</p>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-main" onclick="goToStep(1)" id="btnStartApp">
+          Bắt đầu làm bài test lắng nghe cơ thể
+        </button>
+      </section>
+
+
+      <!-- ======================================================================
+           VIEW 2: BƯỚC 1 — LẮNG NGHE TÍN HIỆU CƠ THỂ (~12 CÂU ĐỜI THƯỜNG)
+           ====================================================================== -->
+      <section class="view-panel" id="viewStep1">
+        <div class="section-header">
+          <span class="step-tag">Bước 1 / 3</span>
+          <h2 class="step-title">Những tín hiệu gần đây của bạn</h2>
+          <p class="step-subtitle">Hãy tích chọn những cảm giác bạn từng trải qua trong thời gian gần đây (chọn những gì đúng với bạn nhất):</p>
+        </div>
+
+        <!-- Cụm 1: Tâm & Giấc Ngủ -->
+        <div class="question-cluster">
+          <div class="cluster-title">
+            1. Nhịp Tinh Thần & Giấc Ngủ
+          </div>
+          <div class="checklist-items">
+            <div class="check-card" onclick="toggleCheck(this, 'sleep_trouble')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Đêm hay trằn trọc khó vào giấc, hoặc hay giật mình lúc nửa đêm</span>
+                <span class="check-hint">Nằm lâu mới ngủ được hoặc tỉnh giấc lúc nửa đêm rồi trằn trọc</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'morning_fatigue')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Sáng thức dậy vẫn thấy đầu nặng, người uể oải như chưa được nghỉ</span>
+                <span class="check-hint">Cảm giác thiếu ngủ dù đã ngủ đủ số giờ</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'stress_anxiety')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Ban ngày hay bồn chồn lo âu, dễ cáu gắt hoặc áp lực công việc</span>
+                <span class="check-hint">Tâm trí luôn trong trạng thái chạy vội, khó buông lỏng</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'headache_fog')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Hay bị đau đầu ê ẩm vùng trán/thái dương, hoặc choáng nhẹ khi đứng lên</span>
+                <span class="check-hint">Cảm giác thiếu tỉnh táo, hay quên việc vặt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cụm 2: Đường Ruột & Chuyển Hóa -->
+        <div class="question-cluster">
+          <div class="cluster-title">
+            2. Nhịp Tiêu Hóa & Năng Lượng
+          </div>
+          <div class="checklist-items">
+            <div class="check-card" onclick="toggleCheck(this, 'bloating_acid')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Bụng hay đầy hơi, ấm ách sau ăn hoặc có lúc ợ chua/nóng rát</span>
+                <span class="check-hint">Bụng khó chịu đặc biệt sau khi ăn tinh bột nhiều hoặc đồ dầu mỡ</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'bowel_irregular')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Đi ngoài thất thường (lúc táo bón, lúc lỏng, không đều đặn mỗi sáng)</span>
+                <span class="check-hint">Đường ruột nhạy cảm với đồ lạ hoặc đồ uống đá lạnh</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'afternoon_crash')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Tầm chiều hay bị tụt năng lượng, cồn cào thèm đồ ngọt</span>
+                <span class="check-hint">Thèm trà sữa, bánh ngọt, cà phê sữa để kéo lại tỉnh táo</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'emotional_eating')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Ăn theo cảm xúc (khi căng thẳng buồn bực thì ăn nhiều hoặc chán ăn)</span>
+                <span class="check-hint">Mất cảm giác ngon miệng tự nhiên của thức ăn tươi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cụm 3: Thân Thể & Khoáng Chất -->
+        <div class="question-cluster">
+          <div class="cluster-title">
+            3. Cảm Nhận Thân Thể & Cơ Khớp
+          </div>
+          <div class="checklist-items">
+            <div class="check-card" onclick="toggleCheck(this, 'neck_shoulder_pain')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Cổ, vai gáy thường xuyên căng cứng, mỏi nhức vùng lưng</span>
+                <span class="check-hint">Cơ thể có cảm giác gồng cứng sau nhiều giờ ngồi làm việc</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'numb_cramp')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Thỉnh thoảng tê râm ran đầu ngón tay/chân, hoặc có cơn chuột rút đêm</span>
+                <span class="check-hint">Bàn chân hay lạnh hoặc mỏi khớp gối khi lên cầu thang</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'dry_skin_hair')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Làn da khô sạm, thiếu sức sống hoặc tóc rụng nhiều hơn bình thường</span>
+                <span class="check-hint">Cơ thể thiếu độ ẩm và dưỡng chất từ bên trong</span>
+              </div>
+            </div>
+
+            <div class="check-card" onclick="toggleCheck(this, 'short_breath')">
+              <div class="check-box-fake"></div>
+              <div class="check-content">
+                <span class="check-label-text">Thỉnh thoảng hụt hơi, thở nông hoặc hồi hộp nhẹ khi làm việc gấp</span>
+                <span class="check-hint">Nhịp thở ngắn, chưa đưa được hơi sâu xuống bụng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group-nav">
+          <button type="button" class="btn-secondary" onclick="goToStep(0)">
+            Quay lại
+          </button>
+          <button type="button" class="btn-main" onclick="goToStep(2)" id="btnStep1Next">
+            Tiếp tục bước 2
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ======================================================================
+           VIEW 3: BƯỚC 2 — TRUY VẾT NHỊP SỐNG 7 NGÀY QUA (CHỌN NHIỀU PHƯƠNG ÁN)
+           ====================================================================== -->
+      <section class="view-panel" id="viewStep2">
+        <div class="section-header">
+          <span class="step-tag">Bước 2 / 3</span>
+          <h2 class="step-title">Nhìn lại 7 ngày vừa qua</h2>
+          <p class="step-subtitle">Hãy tích chọn tất cả những thói quen ăn uống và sinh hoạt đúng với bạn trong tuần qua (bạn có thể chọn <strong>nhiều phương án cùng lúc</strong>):</p>
+        </div>
+
+        <!-- Câu hỏi A: Thực phẩm chính -->
+        <div class="radio-question-box">
+          <div class="radio-question-title">
+            
+            A. Thói quen bữa ăn tuần qua của bạn? (Có thể chọn nhiều)
+          </div>
+          <div class="radio-options" id="groupDiet">
+            
+            <div class="habit-card" onclick="toggleHabit('diet', 'eating_out', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Nhiều bữa ăn ngoài, cơm hộp văn phòng, món xào/chiên rán nhiều dầu mỡ</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('diet', 'eating_rushed', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Ăn rất nhanh và vội vàng, vừa ăn vừa lướt điện thoại hoặc xử lý việc</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('diet', 'skip_breakfast_late_dinner', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Hay bỏ bữa sáng, trưa ăn qua loa và tối về ăn no dồn dập sát giờ ngủ</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('diet', 'home_cooked_repetitive', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Tự nấu ở nhà nhưng món ăn còn đơn điệu, ít rau xanh và chất xơ tươi sống</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Câu hỏi B: Nước uống -->
+        <div class="radio-question-box">
+          <div class="radio-question-title">
+            
+            B. Thói quen uống nước của bạn mỗi ngày? (Có thể chọn nhiều)
+          </div>
+          <div class="radio-options" id="groupWater">
+
+            <div class="habit-card" onclick="toggleHabit('water', 'too_little', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Uống rất ít nước, thường đợi đến khi khát khô cổ mới nhớ uống</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('water', 'caffeine_sweet', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Uống nhiều cà phê đậm đặc, trà sữa ngọt hoặc nước ngọt thay cho nước lọc ấm</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('water', 'cold_water', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Thích uống nước đá lạnh, nước lấy thẳng từ tủ lạnh làm lạnh đường ruột</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('water', 'gulping', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Uống ừng ực một cốc lớn lúc khát thay vì nhấp từng ngụm ấm rải đều</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('water', 'good_warm', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Có thói quen uống nước ấm từng ngụm nhỏ rải đều trong ngày tương đối tốt</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Câu hỏi C: Nhịp nghỉ ngơi -->
+        <div class="radio-question-box">
+          <div class="radio-question-title">
+            
+            C. Khoảng lặng và nhịp nghỉ ngơi mỗi tối? (Có thể chọn nhiều)
+          </div>
+          <div class="radio-options" id="groupRest">
+
+            <div class="habit-card" onclick="toggleHabit('rest', 'screen_till_sleep', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Ôm điện thoại hoặc làm việc đến sát lúc ngủ, đầu óc vẫn chạy đua nghĩ ngợi</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('rest', 'late_sleep', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Thường xuyên thức khuya, giờ giấc đi ngủ không cố định</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('rest', 'restless', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Có thời gian nằm nghỉ nhưng người vẫn bồn chồn, khó thả lỏng toàn bộ cơ bắp</div>
+            </div>
+
+            <div class="habit-card" onclick="toggleHabit('rest', 'have_relaxation', this)">
+              <div class="habit-check-fake"></div>
+              <div class="habit-label">Có dành được chút thời gian thư giãn, ngâm chân hoặc đọc sách nhẹ nhàng</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="btn-group-nav">
+          <button type="button" class="btn-secondary" onclick="goToStep(1)">
+            Quay lại
+          </button>
+          <button type="button" class="btn-main" onclick="generateResult()" id="btnStep2Next">
+            Xem bản soi chiếu cơ thể
+          </button>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 4: BƯỚC 3 — BẢN SOI CHIẾU & LỜI KHUYÊN NUÔI DƯỠNG THÂN TÂM
+           ====================================================================== -->
+      <section class="view-panel" id="viewResult">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div class="result-badge">
+            Bản Soi Chiếu Thân & Tâm
+          </div>
+          <h2 class="result-title" id="resHeadline">Cơ thể bạn đang thì thầm điều gì?</h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">Đúc kết từ tín hiệu cơ thể và nhịp sống 7 ngày qua của bạn</p>
+        </div>
+
+        <!-- Card Thông Điệp Lắng Nghe -->
+        <div class="result-summary-card">
+          <div id="resIcon" style="display:none;"></div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px;" id="resStateTitle">
+            Bạn đang có sự căng thẳng nhẹ ở hệ Thần kinh & Tiêu hóa
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;" id="resStateSubtitle">
+            Cơ thể bạn đang làm việc rất chăm chỉ mỗi ngày, nhưng một vài thói quen nhỏ đang khiến các cơ quan phải gồng gánh thêm tải trọng.
+          </p>
+
+          <div class="result-voice-box">
+            <div class="result-voice-title">
+              Tiếng thì thầm của cơ thể bạn:
+            </div>
+            <div class="result-voice-desc" id="resVoiceContent">
+              "Mình mệt rồi, mình cần được bạn cho nghỉ ngơi trước giờ ngủ, cần một ngụm nước ấm chậm rãi và một bữa ăn không phải vừa nhai vừa chạy đua với công việc..."
+            </div>
+          </div>
+        </div>
+
+        <!-- BẢNG SOI CHIẾU TOÀN DIỆN 7 HỆ CƠ THỂ -->
+        <div class="systems-overview-box">
+          <div class="systems-overview-header">
+            <h3>Bản Soi Chiếu 7 Hệ Cơ Thể Của Bạn</h3>
+          </div>
+          <p class="systems-overview-sub">
+            Được đúc kết từ những tín hiệu đời thường và nhịp sống 7 ngày qua của bạn. Những hệ có ký hiệu màu cam là nơi cơ thể đang cần bạn nâng niu và vỗ về ưu tiên:
+          </p>
+          <div class="systems-status-list" id="systemsStatusList">
+            <!-- Tự động kết xuất từ Javascript -->
+          </div>
+        </div>
+
+        <!-- MỤC TỰ VẤN TỨC THÌ THEO DẤU HIỆU CỦA BẠN (ĂN GÌ • UỐNG GÌ • LÀM GÌ) -->
+        <div class="immediate-remedies-box" id="immediateRemediesContainer">
+          <h3 class="immediate-remedies-title">
+            Lời Khuyên Tức Thì Cho Bạn
+          </h3>
+          <p class="immediate-remedies-sub" id="immediateRemediesSub">Dựa trên những cảm giác bạn vừa tích chọn, đây là cách vỗ về cơ thể ngay hôm nay:</p>
+          
+          <div id="dynamicRemediesList">
+            <!-- Tự động sinh từ JS -->
+          </div>
+        </div>
+
+        <!-- 3 Khối Phân Tích Thấu Đáo (Tâm - Ruột - Cơ) -->
+        <div style="margin-bottom: 24px;" id="rootHabitsSection">
+          <h3 id="rootHabitsTitle" style="font-size: 1.05rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            Gốc rễ từ thói quen 7 ngày qua:
+          </h3>
+          <div id="balancedHabitsNotice" style="display: none; background: #f2f8f5; border: 1px solid #cce5d8; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+            <div style="font-weight: 600; color: #1e5a38; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              Nhịp sống 7 ngày qua của bạn đang giữ được sự điều hòa rất tốt
+            </div>
+            <div style="font-size: 0.92rem; color: #374151; line-height: 1.6;">
+              Trục Thần Kinh - Tiêu Hóa - Cơ Khớp của bạn không phát tín hiệu quá tải. Đây là kết quả tuyệt vời từ sự lắng nghe và chăm sóc bản thân đúng mực. Hãy tiếp tục duy trì nhịp điệu sinh hoạt an lành này bạn nhé!
+            </div>
+          </div>
+
+          <!-- Block 1: Tâm & Giấc Ngủ -->
+          <div class="insight-block" id="blockMind">
+            <div class="insight-header">
+              
+              <div class="insight-header-text">
+                <h4 id="mindTitle">Hệ Thần Kinh & Chất Lượng Giấc Ngủ</h4>
+                <span id="mindStatus">Cần được vỗ về & thả lỏng</span>
+              </div>
+            </div>
+            <div class="insight-body" id="mindBody">
+              Khi bạn ôm màn hình điện thoại sát giờ ngủ hoặc để tâm trí chạy đua với lo toan, hormone cortisol tăng cao ức chế melatonin, khiến dạ dày tăng tiết acid và não bộ không thể chìm vào giấc ngủ sâu phục hồi.
+            </div>
+            <div class="insight-highlight">
+              <span id="mindTip">Bí quyết nhỏ: Hãy buông điện thoại trước giờ ngủ, xoa ấm hai lòng bàn chân hoặc thở bụng chậm rãi.</span>
+            </div>
+          </div>
+
+          <!-- Block 2: Tiêu Hóa -->
+          <div class="insight-block" id="blockGut">
+            <div class="insight-header">
+              
+              <div class="insight-header-text">
+                <h4 id="gutTitle">Hệ Tiêu Hóa (Bộ Não Thứ Hai)</h4>
+                <span id="gutStatus">Đang bị quá tải nhẹ</span>
+              </div>
+            </div>
+            <div class="insight-body" id="gutBody">
+              Đường ruột là nơi nơi sản xuất phần lớn serotonin (hormone hạnh phúc). Thói quen ăn uống vội vã, bỏ bữa sáng hoặc ăn tối muộn khiến dịch vị tiêu hóa rối loạn, dẫn đến chứng đầy bụng và cảm giác thèm ngọt vào buổi chiều.
+            </div>
+            <div class="insight-highlight">
+              <span id="gutTip">Bí quyết nhỏ: Nhai chậm gấp đôi bình thường và ưu tiên các món hấp/luộc thanh nhẹ trong 3 ngày tới để dạ dày nghỉ ngơi.</span>
+            </div>
+          </div>
+
+          <!-- Block 3: Cơ Khớp & Năng Lượng -->
+          <div class="insight-block" id="blockBody">
+            <div class="insight-header">
+              
+              <div class="insight-header-text">
+                <h4 id="bodyTitle">Hệ Cơ Khớp & Tín Hiệu Vi Khoáng</h4>
+                <span id="bodyStatus">Cần bù ẩm & khoáng chất</span>
+              </div>
+            </div>
+            <div class="insight-body" id="bodyBody">
+              Cảm giác mỏi gáy, tê bì nhẹ hay hụt hơi là dấu hiệu cơ bắp đang thiếu nước khoáng và các chất dẫn truyền thần kinh (Canxi, Magie). Khi uống ít nước, máu đặc hơn và việc vận chuyển oxy đến các nhóm cơ bị chậm lại.
+            </div>
+            <div class="insight-highlight">
+              <span id="bodyTip">Bí quyết nhỏ: Uống từng ngụm nước ấm nhỏ đều đặn suốt ngày, bổ sung thêm các loại hạt hoặc rau xanh đậm.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Bước Nuôi Dưỡng Thân Tâm Cụ Thể (Lộ trình 7 ngày) -->
+        <div class="action-pillars-card" id="actionPillarsCard">
+          <h3 class="pillars-heading" id="pillarsHeading">3 Bước Nuôi Dưỡng Thân Tâm Cùng Bạn</h3>
+          
+          <div class="pillar-item">
+            <div class="pillar-num">1</div>
+            <div class="pillar-content" id="pillarContent1">
+              <h5>Bước 1: Vỗ về tinh thần trước bữa ăn</h5>
+              <p>Trước khi ăn, hãy hít sâu vài hơi thở chậm, cảm ơn đĩa thức ăn trước mặt và nhai thật chậm. Khi tinh thần vui vẻ, thức ăn mới biến thành dinh dưỡng lành mạnh.</p>
+            </div>
+          </div>
+
+          <div class="pillar-item">
+            <div class="pillar-num">2</div>
+            <div class="pillar-content" id="pillarContent2">
+              <h5>Bước 2: Giảm tải cho dạ dày vào bữa tối</h5>
+              <p>Ăn tối sớm hơn một chút, hạn chế đồ chiên xào nhiều mỡ vào buổi tối để lá gan và dạ dày được thảnh thơi phục hồi khi bạn ngủ.</p>
+            </div>
+          </div>
+
+          <div class="pillar-item">
+            <div class="pillar-num">3</div>
+            <div class="pillar-content" id="pillarContent3">
+              <h5>Bước 3: Lắng nghe và điều chỉnh nhỏ mỗi ngày</h5>
+              <p>Không cần ăn kiêng kham khổ hay gượng ép. Chỉ cần một chút thay đổi nhỏ: một ly nước ấm buổi sáng, buông màn hình trước khi ngủ là cơ thể đã rất biết ơn bạn.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thanh Thủy Personal Connect -->
+        <div class="thuy-connect-box">
+          <div class="thuy-name">Thanh Thủy</div>
+          <div class="thuy-title">Đồng hành Chăm sóc Sức khỏe & Thân Tâm Chủ Động</div>
+          
+          <div class="thuy-message" id="thuyMessage">
+            "Chào bạn, Thủy rất hiểu cảm giác mệt mỏi hay bối rối khi cơ thể không như ý. Đừng lo lắng nhé, cơ thể chúng ta có khả năng tự phục hồi rất kỳ diệu nếu được thấu hiểu đúng cách. Thủy ở đây luôn sẵn sàng lắng nghe câu chuyện của bạn."
+          </div>
+
+          <a href="javascript:void(0)" onclick="sendResultToZalo()" class="btn-zalo-direct" id="btnSendZalo">
+            Nhắn gửi kết quả này cùng Thanh Thủy
+          </a>
+        </div>
+
+        <!-- Share & Re-test buttons -->
+        <div class="btn-group-nav" style="margin-top: 16px;">
+          <button type="button" class="btn-secondary" style="flex: 1;" onclick="shareOrCopyResult()">
+            Sao chép kết quả
+          </button>
+          <button type="button" class="btn-secondary" style="flex: 1;" onclick="goToStep(0)">
+            Làm lại bài test
+          </button>
+        </div>
+
+      </section>
+
+
+      <!-- ======================================================================
+           VIEW 5: GÓC GIÃI BÀY THÂN TÂM (KHÁCH TỰ ĐÁNH CHỮ BIỂU HIỆN)
+           ====================================================================== -->
+      <section class="view-panel" id="viewFreeform">
+        <div class="freeform-box">
+          <div class="freeform-header">
+            <div class="hero-badge">
+              Viết ra để nhẹ lòng
+            </div>
+            <h2 class="freeform-title">Góc Giãi Bày Thân Tâm</h2>
+            <p class="freeform-desc">
+              Hãy viết tự nhiên những cảm giác khó chịu bạn đang trải qua gần đây. App sẽ phân tích và giải đáp ngay cho bạn cách chăm sóc tại nhà.
+            </p>
+          </div>
+
+          <!-- Textarea -->
+          <textarea class="freeform-textarea" id="freeformInput" placeholder="Ví dụ: Da dạo này khô quá, không được mềm mịn... hoặc: hay bị đau đầu, tối khó ngủ, ăn uống không ngon miệng..."></textarea>
+
+          <!-- Quick click chips to append text -->
+          <div class="chip-tags-group">
+            <span class="chip-tags-label">Gợi ý chạm nhanh để thêm biểu hiện:</span>
+            <div class="chip-tags-list">
+              <span class="chip-tag-item" onclick="addChipText('khó ngủ trằn trọc mất ngủ đêm')">Thần kinh: Khó ngủ, trằn trọc</span>
+              <span class="chip-tag-item" onclick="addChipText('đau đầu ê ẩm nặng trán tiền đình')">Thần kinh: Đau đầu, tiền đình</span>
+              <span class="chip-tag-item" onclick="addChipText('viêm họng đau rát cổ ho khi đổi thời tiết')">Hô hấp: Viêm họng, rát cổ</span>
+              <span class="chip-tag-item" onclick="addChipText('viêm xoang ngạt mũi sổ mũi dị ứng')">Hô hấp: Viêm xoang, sổ mũi</span>
+              <span class="chip-tag-item" onclick="addChipText('tim đập nhanh hồi hộp bồn chồn')">Tim mạch: Tim đập nhanh, hồi hộp</span>
+              <span class="chip-tag-item" onclick="addChipText('hoa mắt chóng mặt tay chân lạnh buốt')">Tim mạch: Chóng mặt, lạnh tay chân</span>
+              <span class="chip-tag-item" onclick="addChipText('bụng đầy hơi khó tiêu trào ngược dạ dày ợ chua')">Tiêu hóa: Đầy hơi, trào ngược dạ dày</span>
+              <span class="chip-tag-item" onclick="addChipText('đau đại tràng táo bón đi ngoài thất thường')">Tiêu hóa: Đại tràng, táo bón</span>
+              <span class="chip-tag-item" onclick="addChipText('ăn không ngon miệng nhạt mồm chán ăn')">Tiêu hóa: Ăn không ngon miệng</span>
+              <span class="chip-tag-item" onclick="addChipText('đi tiểu đêm nhiều lần thận yếu')">Bài tiết: Đi tiểu đêm, thận yếu</span>
+              <span class="chip-tag-item" onclick="addChipText('nóng trong nhiệt miệng nước tiểu vàng sẫm')">Bài tiết: Nóng trong, nhiệt miệng</span>
+              <span class="chip-tag-item" onclick="addChipText('đau mỏi cổ vai gáy căng cứng lưng')">Cơ khớp: Mỏi cổ vai gáy</span>
+              <span class="chip-tag-item" onclick="addChipText('thiếu canxi chuột rút tê bì tay chân')">Cơ khớp: Thiếu canxi, chuột rút</span>
+              <span class="chip-tag-item" onclick="addChipText('thoái hóa khớp gối đau lưng thoát vị')">Cơ khớp: Thoái hóa, đau lưng</span>
+              <span class="chip-tag-item" onclick="addChipText('rối loạn nội tiết kinh nguyệt không đều bốc hỏa')">Nội tiết: Rối loạn nội tiết, bốc hỏa</span>
+              <span class="chip-tag-item" onclick="addChipText('da dạo này khô quá không được mềm mịn sạm màu')">Làn da: Da khô, không được mềm</span>
+              <span class="chip-tag-item" onclick="addChipText('rụng tóc nhiều tóc khô xơ chẻ ngọn')">Làn da: Rụng tóc nhiều</span>
+              <span class="chip-tag-item" onclick="addChipText('chiều tụt năng lượng uể oải thèm ngọt')">Năng lượng: Tụt năng lượng chiều</span>
+              <span class="chip-tag-item" onclick="addChipText('dị ứng thời tiết mẩn ngứa nổi mề đay')">Miễn dịch: Dị ứng, mẩn ngứa</span></div>
+          </div>
+
+          <button type="button" class="btn-main" onclick="analyzeFreeformText()" id="btnAnalyzeFreeform" style="width: 100%;">
+            Lắng nghe & Giải mã tiếng nói cơ thể ngay
+          </button>
+
+          <!-- AI Response Result Box -->
+          <div class="ai-response-card" id="freeformResultCard">
+            <div class="air-header">
+              <div class="air-title">
+                <h4 id="airHeading">Bóc Tách Mắt Xích Ngầm Thân Tâm</h4>
+                <span>Thanh Thủy soi chiếu sự liên kết vi diệu giữa các hệ cơ thể</span>
+              </div>
+            </div>
+
+            <div class="air-message" id="airMessageText">
+              <!-- Nội dung thấu cảm & dẫn nhập mắt xích ngầm -->
+            </div>
+
+            <div id="airChainContainer">
+              <!-- Tự động sinh các thẻ Bóc Tách Mắt Xích Ngầm Thân Tâm -->
+            </div>
+
+            <!-- Khung tâm sự sâu hơn (Nhẹ nhàng, hoàn toàn tự nguyện) -->
+            <div class="optional-connect-box">
+              <p class="ocb-text">
+                Bạn hãy thử áp dụng những gợi ý tự nhiên trên để cảm nhận cơ thể của mình nhé.<br>
+                — Thủy luôn ở đây sẵn sàng lắng nghe bạn:
+              </p>
+              <div class="ocb-buttons">
+                <a href="tel:0978864099" class="ocb-btn-call">
+                  Gọi trực tiếp cho Thủy: 0978 864 099
+                </a>
+                <a href="javascript:void(0)" onclick="sendFreeformToZalo()" class="ocb-btn-zalo" id="btnSendFreeformZalo">
+                  Nhắn Zalo cùng Thủy
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ======================================================================
+           VIEW 6: CẨM NANG TỰ VẤN (TRA CỨU DẤU HIỆU: NÊN ĂN GÌ • UỐNG GÌ • LÀM GÌ)
+           ====================================================================== -->
+      <section class="view-panel" id="viewHandbook">
+        <div class="handbook-header">
+          <div class="hero-badge">
+            Sổ Tay Bỏ Túi Cho Bạn
+          </div>
+          <h2 class="handbook-title">Khi Cơ Thể Lên Tiếng</h2>
+          <p class="handbook-desc">
+            Tra cứu nhanh cách tự chăm sóc cơ thể nhẹ nhàng từ gốc rễ dinh dưỡng và nhịp thở khi gặp các tín hiệu bất an:
+          </p>
+        </div>
+
+        <!-- Search / Filter Input -->
+        <!-- Print Only Header -->
+        <div class="print-only-header">
+          <h2>TRẠM DINH DƯỠNG — CẨM NANG KHI CƠ THỂ LÊN TIẾNG</h2>
+          <p>Lắng Nghe Cơ Thể • Ăn Đúng Uống Lành • Đồng Hành Cùng Thanh Thủy (Hotline/Zalo: 0978 864 099)</p>
+        </div>
+
+        <!-- Tiện ích: Sao chép cẩm nang & Tải PDF / In -->
+        <div class="handbook-search-box">
+          
+          <input type="text" class="handbook-search-input" id="handbookSearch" placeholder="Tìm dấu hiệu (da khô, mất ngủ, đau đầu, thiếu canxi, chán ăn...)" oninput="filterHandbook(this.value)">
+        </div>
+
+        <!-- Accordion Cards List -->
+        <div class="handbook-list" id="handbookAccordion">
+
+          <!-- 1. Làn Da Khô Ráp, Thiếu Ẩm -->
+          <div class="hb-card open" data-keyword="da khô da sạm sạm da nám da mụn da khô ráp bong tróc thiếu ẩm không được mềm mịn">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Làn Da Khô Ráp, Sạm Màu, Thiếu Ẩm, Kém Mềm Mại</h4>
+                  <span>Tế bào thiếu nước tầng sâu • Thiếu hụt màng Lipid giữ ẩm • Đứt gãy Collagen</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Uống đủ nước ấm rải đều từng ngụm nhỏ suốt cả ngày:</strong> Da là cơ quan xa nhất nhận được nước. Nếu bạn chỉ uống khi khát thì cơ thể sẽ ưu tiên tim phổi, da sẽ là nơi bị khô và xỉn màu đầu tiên.</li>
+                    <li><strong>Nước ép cà rốt - cần tây - táo hoặc nước dừa tươi ấm:</strong> Giàu vitamin A, C, kali tự nhiên giúp tái tạo tế bào biểu bì và cấp ẩm sâu.</li>
+                    <li><em> Tránh:</em> Cà phê đậm đặc, trà sữa nhiều đường và đồ uống đá lạnh.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Bổ sung chất béo tốt (Omega-3 & Vitamin E):</strong> Quả bơ, hạt óc chó, hạt hạnh nhân, dầu hạt lanh, cá hồi (chất béo tốt chính là "lớp màng khóa ẩm" tự nhiên giúp da căng mướt, mềm mại).</li>
+                    <li><strong>Thực phẩm giàu Vitamin C kích thích tạo Collagen:</strong> Ớt chuông, quả ổi, quả mọng, bông cải xanh, đậu phụ.</li>
+                    <li><em> Tránh xa đường tinh luyện:</em> Bánh ngọt, nước ngọt làm tăng quá trình glycation bẻ gãy liên kết collagen, khiến da nhanh khô ráp, chảy xệ và sạm nám.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Khóa ẩm ngay sau khi rửa mặt:</strong> Thoa dưỡng ẩm nhẹ nhàng ngay khi da còn hơi ẩm để giữ nước lại trong tế bào.</li>
+                    <li><strong>Đi ngủ sớm trước 22h30:</strong> Từ 23h đến 2h sáng là khoảng thời gian quý giá để các tế bào da tái tạo và phục hồi tự nhiên.</li>
+                    <li><em> Tuyệt đối không rửa mặt bằng nước quá nóng:</em> Nước nóng sẽ cuốn trôi sạch lớp dầu tự nhiên bảo vệ da, khiến da càng khô nứt.</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- 2. Mất Ngủ -->
+          <div class="hb-card" data-keyword="mất ngủ khó ngủ trằn trọc ngủ chập chờn thức giấc uể oải">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Khó Ngủ, Trằn Trọc, Nằm Lâu Không Vào Giấc</h4>
+                  <span>Hệ thần kinh giao cảm căng cứng • Thiếu hụt Melatonin tự nhiên</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>1 ly nước ấm pha 1 thìa nhỏ mật ong tự nhiên</strong> trước khi đi ngủ (hỗ trợ chuyển hóa tryptophan thành melatonin ru ngủ).</li>
+                    <li><strong>Trà hoa cúc ấm, trà tâm sen hoặc sữa hạt hạnh nhân ấm</strong> (chứa nhiều magie tự nhiên giúp làm giãn các thớ cơ).</li>
+                    <li><em> Tuyệt đối tránh:</em> Cà phê, trà xanh đậm vào buổi chiều tối, rượu bia hoặc nước ngọt có gas.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Bữa tối nhẹ nhàng trước 19h:</strong> cháo yến mạch, canh củ sen hầm, chuối chín, hoặc một nắm hạt bí ngô rang mộc.</li>
+                    <li><em> Cần tránh:</em> Đồ chiên rán ngập dầu, đồ cay nóng hoặc ăn quá nhiều thịt đỏ vào bữa tối khiến dạ dày gồng mình làm việc suốt đêm.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Ngâm chân nước ấm (thêm chút gừng đập dập và muối hạt) trong 10–15 phút</strong> để kéo dòng ấm xuống bàn chân, giải tỏa căng áp ở đầu.</li>
+                    <li><strong>Tắt màn hình điện thoại hoặc tivi trước giờ ngủ 30 phút</strong> để mắt và não bộ được thư giãn trong bóng tối êm dịu, không bị ánh sáng xanh quấy rầy.</li>
+                    <li><strong>Thực hành hít thở sâu:</strong> Hít vào êm dịu, giữ hơi nhẹ nhàng và thở ra từ từ qua miệng (lặp lại nhiều lần).</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 3. Giấc ngủ không sâu, hay thức giấc giữa đêm -->
+          <div class="hb-card" data-keyword="giấc ngủ không sâu chập chờn hay thức giấc giật mình nửa đêm">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Giấc Ngủ Chập Chờn, Không Sâu, Hay Tỉnh Giấc Nửa Đêm</h4>
+                  <span>Gan quá tải thải độc • Hạ đường huyết ban đêm • Thần kinh chưa nghỉ ngơi</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Trà hoa cúc atiso ấm hoặc nước râu ngô mã đề:</strong> Giúp làm mát gan và hỗ trợ gan thanh lọc êm ái khi ngủ.</li>
+                    <li><strong>Nước ấm từng ngụm nhỏ</strong> trước khi đi ngủ, không uống lượng nước quá lớn làm thức giấc đi tiểu đêm.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Hạn chế đồ ngọt tinh luyện vào buổi tối:</strong> Bánh kẹo làm đường huyết ban đêm tụt dốc kích thích tuyến thượng thận tiết adrenaline gây tỉnh giấc.</li>
+                    <li><strong>Thêm hạt sen, long nhãn, đậu đỏ</strong> vào các món canh dưỡng tâm an thần.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Xoa ấm gan bàn chân (lòng bàn chân):</strong> Dùng hai lòng bàn tay xoa xát thật ấm vào gan bàn chân trước khi đi ngủ, giúp đôi chân ấm áp, khí huyết lưu thông và dễ dàng chìm vào giấc ngủ sâu.</li>
+                    <li><strong>Giữ phòng ngủ thật tối và yên tĩnh:</strong> Đeo bịt mắt nếu phòng có ánh sáng lọt vào.</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 4. Đau Đầu, Choáng Váng -->
+          <div class="hb-card" data-keyword="đau đầu nhức đầu nặng trán ê ẩm choáng váng hoa mắt mỏi mắt">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Đau Đầu Ê Ẩm, Nặng Trán, Choáng Váng</h4>
+                  <span>Tế bào não thiếu nước • Co thắt mạch máu • Áp lực căng thẳng</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Uống ngay 1 ly nước ấm từng ngụm chậm rãi:</strong> Phần lớn cơn đau đầu ban ngày là do cơ thể thiếu nước làm máu đặc lại.</li>
+                    <li><strong>Trà gừng ấm lát mỏng thêm chút chanh tươi:</strong> Gừng chứa chất kháng viêm tự nhiên giúp làm giãn mạch máu não.</li>
+                    <li><strong>Nước dừa tươi ấm hoặc nước khoáng kiềm:</strong> Bù khoáng kali & magie tự nhiên giúp làm dịu thần kinh.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Thực phẩm giàu Magie:</strong> chuối chín, quả bơ, một nắm nhỏ hạt điều hoặc hạt hạnh nhân.</li>
+                    <li><strong>Rau xanh lá thẫm luộc thanh nhẹ</strong> (cải bó xôi, súp lơ xanh).</li>
+                    <li><em> Tránh xa:</em> Mì tôm, đồ ăn nêm nhiều bột ngọt, xúc xích đóng hộp và socola ngọt gắt.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Chườm khăn ấm sau gáy:</strong> Giúp mạch máu từ tim lên não mở rộng, giải phóng sự co thắt.</li>
+                    <li><strong>Mát-xa nhẹ nhàng vùng thái dương và gáy sau:</strong> Dùng các đầu ngón tay xoa nhẹ hai bên thái dương và chân tóc sau gáy giúp giải tỏa căng tức vùng đầu.</li>
+                    <li><strong>Nghỉ ngơi tĩnh lặng:</strong> Nhắm mắt trong phòng ánh sáng dịu, không nhìn vào màn hình.</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 5. Thiếu Canxi, Chuột Rút, Mỏi Khớp -->
+          <div class="hb-card" data-keyword="thiếu canxi canxi chuột rút co rút mỏi lưng đau lưng loãng xương móng giòn">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Dấu Hiệu Thiếu Canxi, Chuột Rút Đêm, Mỏi Khớp, Tê Bì</h4>
+                  <span>Cơ thể rút canxi từ xương vào máu • Thiếu hụt Vitamin D3 & Magie</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>1 ly sữa hạt mè đen (vừng đen) ấm mỗi sáng:</strong> Mè đen là nguồn bổ sung canxi thực vật tự nhiên dồi dào, rất lành tính và dễ hấp thu mà không gây nóng.</li>
+                    <li><strong>Uống nước ấm rải đều suốt ngày:</strong> Nước là môi trường hòa tan để vi khoáng thẩm thấu vào tế bào cơ.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Thực phẩm giàu canxi tự nhiên:</strong> Tép nhỏ ăn cả vỏ, cá kho nhừ ăn cả xương, đậu phụ, rau bina, rong biển, hạnh nhân.</li>
+                    <li><em> Giảm bớt:</em> Ăn mặn và nước ngọt có gas (chứa nhiều axit photphoric làm hòa tan và thất thoát canxi qua đường nước tiểu).</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Tắm nắng sớm đầu ngày:</strong> Giúp cơ thể tự tổng hợp Vitamin D3 tự nhiên - điều kiện tiên quyết để hấp thu canxi.</li>
+                    <li><strong>Ngâm chân nước ấm và xoa bóp bắp chân:</strong> Giúp các bó cơ được thư giãn êm dịu trước khi đi ngủ.</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 6. Ăn Không Ngon Miệng, Miệng Nhạt, Chán Ăn -->
+          <div class="hb-card" data-keyword="ăn không ngon chán ăn miệng nhạt mất vị giác ngấy thức ăn lười ăn">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Ăn Không Ngon Miệng, Miệng Nhạt, Chán Ăn</h4>
+                  <span>Dịch vị dạ dày tiết kém • Thiếu hụt vi khoáng Kẽm • Căng thẳng ức chế tiêu hóa</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>1 ly nước ấm pha chút chanh tươi và lát gừng:</strong> Uống trước bữa ăn để đánh thức tuyến nước bọt và dịch vị dạ dày.</li>
+                    <li><em> Tuyệt đối tránh:</em> Uống nước đá lạnh trước bữa ăn (làm tê liệt niêm mạc lưỡi và giảm tiết men tiêu hóa).</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Bổ sung vi khoáng Kẽm:</strong> Hạt bí ngô, hạt hướng dương, lòng đỏ trứng, thịt nạc, đậu hà lan (Kẽm là nguyên tố quyết định vị giác).</li>
+                    <li><strong>Món canh chua thanh dịu:</strong> Canh chua cá, canh cà chua thì là, canh rau dền nấu tôm giúp kích thích thèm ăn tự nhiên.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Tạo không gian ăn uống thư thái:</strong> Không vừa ăn vừa lướt điện thoại hay xem tin tức tiêu cực.</li>
+                    <li><strong>Nhai thật chậm:</strong> Nhai kỹ giúp tinh bột biến thành đường tự nhiên tạo cảm giác ngọt miệng dễ chịu.</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 7. Đầy Hơi, Khó Tiêu, Trào Ngược -->
+          <div class="hb-card" data-keyword="đầy hơi chướng bụng khó tiêu ợ hơi ợ chua trào ngược dạ dày táo bón">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Bụng Đầy Hơi, Ấm Ách, Ợ Hơi, Khó Tiêu</h4>
+                  <span>Thiếu hụt enzyme phân giải • Thức ăn ứ trệ lên men • Ăn vội vã</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Nước gừng tươi ấm:</strong> Đập dập 3-4 lát gừng hãm với nước sôi 80 độ, uống từng ngụm nhỏ giúp kích thích dạ dày co bóp tống hơi.</li>
+                    <li><strong>Trà bạc hà hoặc trà thì là ấm:</strong> Giúp giãn cơ trơn đường ruột, làm xẹp cơn chướng bụng.</li>
+                    <li><em> Tuyệt đối không:</em> Uống nước đá lạnh (làm đông tụ dầu mỡ trong dạ dày) hoặc nước ngọt có gas.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Ăn 1-2 miếng dứa chín hoặc đu đủ chín:</strong> Chứa enzym bromelain và papain tự nhiên giúp tiêu hóa đạm rất nhanh.</li>
+                    <li><strong>Cháo bí đỏ loãng hoặc canh rau mồng tơi/mướp ngọt thanh:</strong> Giúp xoa dịu niêm mạc dạ dày.</li>
+                    <li><em> Tránh xa:</em> Bánh ngọt nhiều kem, đồ nướng, đồ chiên rán, đồ nếp và ăn no vào buổi tối.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Xoa bụng theo chiều kim đồng hồ:</strong> Đặt lòng bàn tay ấm lên rốn, xoa vòng tròn chậm rãi 30-50 vòng.</li>
+                    <li><strong>Đi bộ thả lỏng nhẹ nhàng:</strong> Tuyệt đối không nằm ngay sau khi ăn. Vận động nhẹ giúp thức ăn di chuyển xuống ruột non.</li>
+                    <li><strong>Nguyên tắc vàng:</strong> Bữa sau hãy nhai chậm gấp đôi bình thường, đặt đũa xuống sau mỗi miếng ăn.</li>
+                  </ul>
+                </div>
+              </div>
+                            <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 8. Mỏi Vai Gáy, Tê Tay Chân -->
+          <div class="hb-card" data-keyword="mỏi vai gáy đau lưng tê tay tê chân chuột rút căng cơ co rút">
+            <div class="hb-card-trigger" onclick="toggleAccordion(this)">
+              <div class="hb-title-group">
+                
+                <div class="hb-title-text">
+                  <h4>Khi Cổ Vai Gáy Căng Cứng, Mỏi Lưng, Tê Tay Chân</h4>
+                  <span>Khí huyết ứ trệ • Thiếu hụt khoáng Canxi - Magie • Cơ bị gồng cứng</span>
+                </div>
+              </div>
+              </div>
+            <div class="hb-content">
+              <div class="hb-section-row">
+                <div class="hb-row-label label-drink">Nên uống gì:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Uống nước ấm rải đều suốt ngày:</strong> Thiếu nước là nguyên nhân hàng đầu khiến sợi cơ bị co rút và khớp khô cứng.</li>
+                    <li><strong>Sữa hạt mè đen (vừng đen) hoặc sữa đậu nành ấm:</strong> Mè đen là "vua canxi" tự nhiên của thực vật, giúp nuôi dưỡng xương khớp.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-food">Nên ăn gì (và kiêng gì):</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Bổ sung thực phẩm giàu Canxi & Magie:</strong> Rau bina (cải bó xôi), đậu phụ, rong biển, chuối tiêu, các loại cá nhỏ ăn cả xương.</li>
+                    <li><strong>Thực phẩm giàu Omega-3:</strong> Cá hồi, hạt chia, hạt lanh, quả óc chó giúp kháng viêm và bôi trơn ổ khớp.</li>
+                    <li><em> Giảm bớt:</em> Ăn mặn (muối nhiều làm hao hụt canxi qua đường nước tiểu).</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hb-section-row">
+                <div class="hb-row-label label-act">Nên làm gì ngay:</div>
+                <div class="hb-row-text">
+                  <ul>
+                    <li><strong>Chườm khăn ấm lên vùng cổ gáy 15 phút:</strong> Nhiệt ấm giúp mạch máu giãn nở tức thì, giải phóng điểm co thắt cơ.</li>
+                    <li><strong>Thói quen 45 phút:</strong> Cứ ngồi làm việc khoảng 45 phút thì đứng lên xoay cổ nhẹ nhàng, đưa hai tay ra sau vươn căng lồng ngực 1–2 phút.</li>
+                    <li><em> Lưu ý:</em> Không tắm nước lạnh muộn vào đêm muộn vì rất dễ làm cơ co rút đột ngột.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+                        <div class="hb-card-footer">
+                <button type="button" class="hb-card-copy-btn" onclick="copyCardContent(this, event)">
+                  Sao chép mục này
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>
+        <!-- Back to Test Button -->
+        <div style="margin-top: 24px; text-align: center;">
+          <button type="button" class="btn-main" onclick="switchAppTab('test')" style="max-width: 320px; margin: 0 auto;">
+            Làm bài test lắng nghe cơ thể
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-quote">"Hiểu dinh dưỡng, hiểu chính mình — Sống khỏe & an lành từ bên trong."</div>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification element -->
+  <div class="toast-msg" id="toastMsg">Đã sao chép kết quả!</div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC - ENGINE TƯ VẤN THẤU THÂN TÂM & CẨM NANG
+       ========================================================================== -->
+  <script>
+    // State Store
+    const AppState = {
+      activeTab: 'test', // 'test', 'freeform', 'handbook'
+      currentStep: 0,
+      checkedSymptoms: new Set(),
+      habitDiet: new Set(),
+      habitWater: new Set(),
+      habitRest: new Set(),
+      lastFreeformText: '',
+      zaloPhone: '0978864099'
+    };
+
+    // Switch between Main Tabs (Bài test, Tự nhập biểu hiện, Cẩm nang)
+    function switchAppTab(tabName) {
+      AppState.activeTab = tabName;
+
+      const tabBtnTest = document.getElementById('tabBtnTest');
+      const tabBtnFreeform = document.getElementById('tabBtnFreeform');
+      const tabBtnHandbook = document.getElementById('tabBtnHandbook');
+      const progressContainer = document.getElementById('progressBarContainer');
+
+      // Reset active tabs
+      [tabBtnTest, tabBtnFreeform, tabBtnHandbook].forEach(btn => btn.classList.remove('active'));
+      hideAllViews();
+
+      if (tabName === 'handbook') {
+        tabBtnHandbook.classList.add('active');
+        progressContainer.style.display = 'none';
+        document.getElementById('viewHandbook').classList.add('active');
+      } else if (tabName === 'freeform') {
+        tabBtnFreeform.classList.add('active');
+        progressContainer.style.display = 'none';
+        document.getElementById('viewFreeform').classList.add('active');
+      } else {
+        tabBtnTest.classList.add('active');
+        progressContainer.style.display = 'block';
+        goToStep(AppState.currentStep);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function hideAllViews() {
+      const views = ['viewWelcome', 'viewStep1', 'viewStep2', 'viewResult', 'viewFreeform', 'viewHandbook'];
+      views.forEach(vId => {
+        const el = document.getElementById(vId);
+        if (el) el.classList.remove('active');
+      });
+    }
+
+    // Navigation between test steps
+    function goToStep(stepIndex) {
+      AppState.currentStep = stepIndex;
+      AppState.activeTab = 'test';
+
+      document.getElementById('tabBtnTest').classList.add('active');
+      document.getElementById('tabBtnFreeform').classList.remove('active');
+      document.getElementById('tabBtnHandbook').classList.remove('active');
+      document.getElementById('progressBarContainer').style.display = 'block';
+
+      // Update progress bar
+      const progressPercent = (stepIndex / 3) * 100;
+      document.getElementById('progressBar').style.width = progressPercent + '%';
+
+      // Switch active view
+      hideAllViews();
+      const views = ['viewWelcome', 'viewStep1', 'viewStep2', 'viewResult'];
+      const currentView = document.getElementById(views[stepIndex]);
+      if (currentView) currentView.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle symptom checkboxes
+    function toggleCheck(cardEl, symptomKey) {
+      if (AppState.checkedSymptoms.has(symptomKey)) {
+        AppState.checkedSymptoms.delete(symptomKey);
+        cardEl.classList.remove('checked');
+      } else {
+        AppState.checkedSymptoms.add(symptomKey);
+        cardEl.classList.add('checked');
+      }
+    }
+
+    // Multi-select Habit Toggle cho Bước 2 (Cho phép chọn nhiều phương án, không lỗi, không mặc định)
+    function toggleHabit(group, value, cardEl) {
+      if (!AppState.habitDiet || !(AppState.habitDiet instanceof Set)) AppState.habitDiet = new Set();
+      if (!AppState.habitWater || !(AppState.habitWater instanceof Set)) AppState.habitWater = new Set();
+      if (!AppState.habitRest || !(AppState.habitRest instanceof Set)) AppState.habitRest = new Set();
+
+      let setObj;
+      if (group === 'diet') setObj = AppState.habitDiet;
+      else if (group === 'water') setObj = AppState.habitWater;
+      else if (group === 'rest') setObj = AppState.habitRest;
+
+      if (!setObj) return;
+
+      if (setObj.has(value)) {
+        setObj.delete(value);
+        cardEl.classList.remove('selected');
+      } else {
+        setObj.add(value);
+        cardEl.classList.add('selected');
+      }
+    }
+
+    // Kho tri thức tư vấn tự động chi tiết theo TẤT CẢ CÁC HỆ TRONG CƠ THỂ
+    const RemedyKnowledge = {
+      // 1. HỆ THẦN KINH & GIẤC NGỦ
+      sleep: {
+        system: "Hệ Thần Kinh",
+        title: "Hệ Thần Kinh: Khi Khó Ngủ, Nằm Lâu Trằn Trọc",
+        icon: "",
+        drink: "1 ly nước ấm pha 1 thìa nhỏ mật ong tự nhiên hoặc trà hoa cúc, trà tâm sen ấm trước khi đi ngủ.",
+        food: "Bữa tối ăn nhẹ nhàng trước 19h: canh củ sen, cháo yến mạch, chuối tiêu chín. Tránh đồ chiên rán nhiều dầu mỡ và caffein vào buổi chiều tối.",
+        action: "Ngâm chân nước gừng ấm 15 phút, tắt màn hình điện thoại hoặc tivi trước khi ngủ 30 phút và thực hành hít thở sâu để đưa tâm trí về trạng thái nghỉ ngơi."
+      },
+      deep_sleep: {
+        system: "Hệ Thần Kinh",
+        title: "Hệ Thần Kinh: Khi Giấc Ngủ Chập Chờn, Không Sâu, Dễ Tỉnh Giấc Nửa Đêm",
+        icon: "",
+        drink: "Trà hoa cúc atiso ấm (hỗ trợ gan thanh lọc êm dịu vào ban đêm) hoặc nước ấm từng ngụm nhỏ.",
+        food: "Tránh ăn ngọt tinh luyện và tinh bột xấu vào ban đêm để đường huyết không dao động gây giật mình.",
+        action: "Xoa ấm gan bàn chân (lòng bàn chân) trước khi nằm. Giữ phòng ngủ tối và yên tĩnh thoáng mát."
+      },
+      headache: {
+        system: "Hệ Thần Kinh",
+        title: "Hệ Thần Kinh: Khi Đau Đầu Ê Ẩm, Tiền Đình, Nặng Trán, Choáng Váng",
+        icon: "",
+        drink: "Uống ngay 300ml nước ấm từng ngụm nhỏ (bù nước cho não bộ), hoặc trà gừng ấm lát mỏng kèm chút đường phèn thanh.",
+        food: "Bổ sung thực phẩm giàu Magie và Vitamin B: chuối chín, bơ, hạt hạnh nhân/hạt điều. Tránh xa mì tôm, đồ nêm nhiều bột ngọt.",
+        action: "Chườm khăn ấm sau gáy, day nhẹ hai bên thái dương và vùng gáy sau, nhắm mắt nghỉ ngơi thư giãn 10–15 phút ở nơi yên tĩnh."
+      },
+      stress: {
+        system: "Hệ Thần Kinh",
+        title: "Hệ Thần Kinh: Khi Căng Thẳng, Lo Âu, Áp Lực, Suy Nhược Thần Kinh",
+        icon: "",
+        drink: "Uống nước ấm từng ngụm chậm (ngậm trong miệng 2 giây rồi nuốt để kích hoạt hệ thần kinh phó giao cảm).",
+        food: "Canh hầm củ quả ngọt tự nhiên (cà rốt, ngô bắp), yến mạch, gạo lứt giàu vitamin nhóm B nuôi dưỡng tế bào thần kinh.",
+        action: "Đặt tay lên bụng thở sâu nhiều nhịp. Tạm gác lại công việc trong chốc lát, đi chân trần trên cỏ hoặc vươn vai đón ánh sáng tự nhiên."
+      },
+
+      // 2. HỆ HÔ HẤP & MIỄN DỊCH
+      throat: {
+        system: "Hệ Hô Hấp",
+        title: "Hệ Hô Hấp: Khi Viêm Họng, Đau Rát Cổ, Ho Khan, Dễ Ốm Khi Đổi Thời Tiết",
+        icon: "",
+        drink: "Nước ấm pha chanh mật ong hoặc quất chưng mật ong nguyên chất (pha nước ấm 45-50°C, ngậm từng ngụm nhỏ ở cuống họng 3-5 giây rồi nuốt chậm để tráng và xoa dịu niêm mạc). Uống trà gừng lát mỏng hoặc trà tía tô ấm giúp giữ ấm phổi, phát tán phong hàn.",
+        food: "Ăn cháo súp ấm mềm dễ nuốt: cháo gà hành tía tô, súp bí đỏ hạt sen, canh củ quả ngọt thanh. Bổ sung Vitamin C và Kẽm từ thực phẩm tươi (ổi, cam, kiwi, ớt chuông, bông cải xanh, hạt bí). TUYỆT ĐỐI TRÁNH: Nước đá lạnh, kem lạnh, đồ chiên rán nhiều dầu mỡ (kích ứng cuống họng sinh đờm nhớt), đồ ăn quá ngọt nhiều đường tinh luyện.",
+        action: "Súc họng bằng nước muối sinh lý ấm đều đặn hằng ngày (ngửa cổ khò sâu trong họng). Quàng khăn mỏng giữ ấm cổ họng và ngực, xoa dầu tràm hoặc dầu gừng vào gan bàn chân rồi đi tất ấm trước khi ngủ. Tránh gió quạt hay điều hòa thốc thẳng vào mặt và gáy cổ."
+      },
+      sinus: {
+        system: "Hệ Hô Hấp",
+        title: "Hệ Hô Hấp: Khi Viêm Xoang, Sổ Mũi, Ngạt Mũi, Hắt Hơi",
+        icon: "",
+        drink: "Nước ấm gừng tươi hãm mật ong hoặc trà tía tô kinh giới ấm giúp thông mũi và ấm phế quản.",
+        food: "Tăng cường tỏi, hành tây, gừng trong món ăn hàng ngày. Kiêng sữa bò và các chế phẩm từ sữa trong đợt viêm xoang vì dễ tăng tiết dịch nhầy.",
+        action: "Xông mũi bằng nước ấm lá sả, vỏ bưởi hoặc vài giọt tinh dầu tràm thư giãn. Rửa mũi bằng nước muối sinh lý ấm."
+      },
+
+      // 3. HỆ TIM MẠCH & TUẦN HOÀN MÁU
+      cardio: {
+        system: "Hệ Tim Mạch",
+        title: "Hệ Tim Mạch: Khi Tim Đập Nhanh, Hồi Hộp, Hoa Mắt Chóng Mặt, Tay Chân Lạnh",
+        icon: "",
+        drink: "Uống nước ấm rải đều từng ngụm nhỏ, trà táo đỏ kỷ tử ấm giúp dưỡng tâm bổ khí huyết, nước dừa tươi ấm bổ sung chất điện giải tự nhiên.",
+        food: "Bổ sung thực phẩm bổ huyết và tốt cho thành mạch: củ dền đỏ, mộc nhĩ đen, hạt sen, rau bina, đậu đỏ, cá béo giàu Omega-3. Hạn chế cà phê quá đậm đặc làm kích thích tim đập nhanh.",
+        action: "Thay đổi tư thế đứng lên ngồi xuống thật chậm rãi (tránh bật dậy đột ngột làm tụt huyết áp tư thế). Ngâm chân nước gừng ấm mỗi tối trước khi ngủ để đẩy máu về tim và làm ấm bàn tay, bàn chân."
+      },
+
+      // 4. HỆ TIÊU HÓA & TRỤC ĐƯỜNG RUỘT
+      gut: {
+        system: "Hệ Tiêu Hóa",
+        title: "Hệ Tiêu Hóa: Khi Bụng Đầy Hơi, Trào Ngược Dạ Dày, Ợ Chua, Khó Tiêu",
+        icon: "",
+        drink: "Nước gừng tươi đập dập hãm ấm hoặc trà bạc hà ấm. Tuyệt đối kiêng nước đá lạnh, nước có ga.",
+        food: "Ăn 1-2 miếng dứa chín hoặc đu đủ chín sau bữa ăn (giàu enzym bromelain/papain tiêu hóa đạm). Bữa tối ăn thanh nhẹ, nhai chậm gấp đôi. Kiêng đồ chua cay nồng và đồ chiên xào ngập dầu.",
+        action: "Xoa bụng theo chiều kim đồng hồ quanh rốn nhẹ nhàng sau bữa ăn. Đi bộ nhẹ nhàng, tuyệt đối không nằm ngay sau bữa ăn."
+      },
+      colon: {
+        system: "Hệ Tiêu Hóa",
+        title: "Hệ Tiêu Hóa: Khi Đại Tràng Co Thắt, Táo Bón, Đi Ngoài Thất Thường",
+        icon: "",
+        drink: "1 ly nước ấm lớn ngay sau khi ngủ dậy để kích hoạt nhu động ruột tống đẩy cặn bã. Uống nước hạt chia ngâm nở hoặc nước khoai lang luộc.",
+        food: "Bổ sung chất xơ hòa tan: mồng tơi, rau đay, chuối tiêu chín, khoai lang luộc, thanh long ruột đỏ. Kiêng đồ ăn khô cứng, thịt đỏ quá nhiều và thức ăn cay nóng.",
+        action: "Tập thói quen đi vệ sinh vào một giờ cố định mỗi sáng (vào đầu ngày). Ngồi tư thế kê ghế nhỏ dưới chân để trực tràng ở góc mở tự nhiên."
+      },
+      appetite: {
+        system: "Hệ Tiêu Hóa",
+        title: "Hệ Tiêu Hóa: Khi Ăn Không Ngon Miệng, Miệng Nhạt, Chán Ăn, Kém Hấp Thu",
+        icon: "",
+        drink: "1 ly nước ấm pha chút chanh tươi và lát gừng trước bữa ăn (kích thích dịch vị dạ dày tiết ra tự nhiên).",
+        food: "Bổ sung thực phẩm giàu vi khoáng Kẽm (hạt bí, lòng đỏ trứng, canh chua thanh nhẹ) giúp khôi phục gai vị giác trên lưỡi.",
+        action: "Tập trung ăn không xem điện thoại hay tivi, nhai thật chậm rãi từng miếng để tinh bột chuyển hóa thành vị ngọt tự nhiên của thực phẩm."
+      },
+
+      // 5. HỆ BÀI TIẾT & THẢI ĐỘC (GAN - THẬN)
+      excretory: {
+        system: "Hệ Bài Tiết",
+        title: "Hệ Bài Tiết & Gan Thận: Khi Đi Tiểu Đêm, Thận Yếu, Nóng Trong, Nước Tiểu Sẫm",
+        icon: "",
+        drink: "Uống đủ nước ấm rải đều ban ngày, nước râu ngô mã đề hoặc nước đậu đen xanh lòng rang ấm thanh nhiệt lợi tiểu. Hạn chế uống nhiều nước sát giờ đi ngủ để tránh tiểu đêm ngắt quãng giấc ngủ.",
+        food: "Ăn nhạt bớt muối (muối làm thận quá tải và tích nước phù nề), tăng cường dưa chuột, bí xanh luộc, măng tây, rau má, táo xanh. Kiêng rượu bia, nước ngọt có ga và đồ chế biến sẵn nhiều phụ gia.",
+        action: "Xoa nóng hai lòng bàn tay rồi áp ấm vào hai bên hông lưng nhiều lần mỗi tối để làm ấm vùng thắt lưng. Tuyệt đối không nhịn tiểu và ngủ sớm đúng giờ để gan mật thải độc trọn vẹn."
+      },
+      mouth_heat: {
+        system: "Hệ Bài Tiết",
+        title: "Hệ Bài Tiết: Khi Nhiệt Miệng, Lở Môi, Nóng Trong Người",
+        icon: "",
+        drink: "Nước bột sắn dây khuấy chín ấm thêm vài giọt chanh, nước râu ngô mã đề hoặc nước dừa tươi ấm thanh nhiệt.",
+        food: "Các món canh rau mát: canh rau má, mồng tơi, bầu bí luộc, chè đậu xanh nguyên vỏ nấu loãng ít đường. Kiêng ớt cay, đồ nướng cháy xém và xoài/nhãn/vải trong đợt nhiệt.",
+        action: "Súc miệng nước muối sinh lý ấm pha loãng sau mỗi bữa ăn, ngủ đủ giấc tránh thức khuya sinh hỏa độc."
+      },
+
+      // 6. HỆ CƠ - XƯƠNG - KHỚP & CỘT SỐNG
+      body: {
+        system: "Hệ Cơ Xương Khớp",
+        title: "Hệ Cơ Khớp: Khi Cổ Vai Gáy Căng Cứng, Đau Mỏi Thắt Lưng, Thoái Hóa",
+        icon: "",
+        drink: "Uống đủ nước ấm rải đều từng ngụm suốt ngày (đĩa đệm cột sống cấu tạo chủ yếu từ nước, thiếu nước sẽ làm đĩa đệm xẹp và đau nhức). Uống thêm sữa mè đen giàu canxi tự nhiên.",
+        food: "Bổ sung rau bina, rong biển, mè đen, các loại cá nhỏ ăn cả xương. Giảm bớt lượng muối ăn hàng ngày.",
+        action: "Chườm ấm vùng cổ gáy hoặc thắt lưng 15 phút. Cứ ngồi làm việc khoảng 45 phút thì đứng lên xoay cổ, vươn vai thả lỏng cột sống 1–2 phút."
+      },
+      calcium: {
+        system: "Hệ Cơ Xương Khớp",
+        title: "Hệ Cơ Khớp: Dấu Hiệu Thiếu Canxi, Chuột Rút Ban Đêm, Khớp Gối Lạo Xạo",
+        icon: "",
+        drink: "1 ly sữa hạt mè đen (vừng đen) ấm mỗi sáng (mè đen là nguồn canxi thực vật tự nhiên dồi dào, lành tính) hoặc nước đậu nành tự nấu ấm.",
+        food: "Bổ sung rau xanh đậm (cải xoăn, súp lơ xanh), đậu phụ, rong biển, tôm tép nhỏ, hạt hạnh nhân. Hạn chế nước ngọt có ga vì axit photphoric làm rút canxi từ xương.",
+        action: "Tắm nắng sớm đầu ngày để cơ thể tự tổng hợp Vitamin D3 tự nhiên giúp hấp thu canxi vào xương. Xoa bóp bắp chân và ngâm chân nước ấm trước ngủ."
+      },
+
+      // 7. HỆ NỘI TIẾT & CHUYỂN HÓA
+      endocrine: {
+        system: "Hệ Nội Tiết",
+        title: "Hệ Nội Tiết: Khi Rối Loạn Nội Tiết, Tiền Mãn Kinh Bốc Hỏa, Kinh Nguyệt Không Đều",
+        icon: "",
+        drink: "Sữa đậu nành nguyên chất ấm, trà hoa hồng tam thất hoặc nước ấm pha hạt chia giúp cân bằng estrogen thực vật tự nhiên.",
+        food: "Tăng cường chất béo tốt (bơ, dầu oliu, hạt lanh, óc chó) - chất béo tốt là nguyên liệu sản sinh hormone nội tiết. Ăn nhiều súp lơ, cải bắp giúp chuyển hóa estrogen dư thừa. Tránh đồ ngọt tinh luyện làm đảo lộn insulin.",
+        action: "Dành 15–20 phút tập yoga nhẹ nhàng hoặc đi bộ thư thái. Ngủ đủ giấc trước 22h30 vì hệ nội tiết tự điều chỉnh mạnh nhất vào ban đêm."
+      },
+      energy: {
+        system: "Hệ Chuyển Hóa",
+        title: "Hệ Chuyển Hóa: Khi Chiều Tụt Năng Lượng, Uể Oải, Cồn Cào Thèm Đường",
+        icon: "",
+        drink: "1 ly nước ấm pha hạt chia chanh mật ong hoặc trà gạo lứt rang ấm. Tránh xa trà sữa ngọt gắt hay nước tăng lực vì sẽ làm đường huyết rơi tự do sau một thời gian ngắn.",
+        food: "Ăn nhẹ táo cắt lát cùng vài hạt óc chó/hạnh nhân, hoặc khoai lang luộc.",
+        action: "Đứng dậy đi lại đón ánh sáng tự nhiên, rửa mặt bằng nước mát và hít thở sâu để đưa oxy lên não."
+      },
+
+      // 8. HỆ DA LIỄU & MIỄN DỊCH
+      skin: {
+        system: "Hệ Da Liễu",
+        title: "Hệ Da Liễu: Khi Làn Da Khô Ráp, Sạm Màu, Thiếu Ẩm, Kém Mềm Mại",
+        icon: "",
+        drink: "Uống đủ nước ấm rải đều từng ngụm nhỏ suốt cả ngày. Uống thêm nước dừa tươi ấm hoặc nước ép cà rốt - cần tây - táo giàu vitamin A, C cấp ẩm sâu.",
+        food: "Bổ sung chất béo tốt (Omega-3 & Vitamin E): quả bơ, hạt óc chó, hạt hạnh nhân, hạt chia, dầu hạt lanh (tạo màng lipid giữ ẩm cho da). Kiêng đồ ngọt đường tinh luyện (đường phá vỡ collagen làm da nhăn khô, xỉn màu).",
+        action: "Bôi kem dưỡng ẩm ngay sau khi rửa mặt khi da còn ẩm. Ngủ sớm trước 22h30 (từ 23h đến 2h sáng là khoảng thời gian quý giá để tế bào da phục hồi và tái tạo tự nhiên). Không rửa mặt bằng nước quá nóng."
+      },
+      hair: {
+        system: "Hệ Da Liễu",
+        title: "Hệ Da Liễu: Khi Tóc Rụng Nhiều, Nang Tóc Yếu, Khô Xơ",
+        icon: "",
+        drink: "Nước ấm hạt mè đen (vừng đen) hoặc nước đậu đen xanh lòng rang ấm (bổ thận, bổ huyết dưỡng tóc).",
+        food: "Thực phẩm giàu Protein sinh học và Sắt: lòng đỏ trứng, mè đen, rau bina, các loại đậu hạt, bí ngô. Tránh gội đầu bằng nước quá nóng làm khô chân tóc.",
+        action: "Dùng mười đầu ngón tay massage nhẹ nhàng da đầu mỗi tối trước khi ngủ để kích thích tuần hoàn máu nuôi dưỡng nang tóc."
+      },
+      allergy: {
+        system: "Hệ Miễn Dịch",
+        title: "Hệ Miễn Dịch: Khi Dị Ứng Thời Tiết, Mẩn Ngứa, Nổi Mề Đay",
+        icon: "",
+        drink: "Nước ấm mật ong gừng lát mỏng, trà hoa cúc atiso ấm (thanh nhiệt giải độc gan, làm dịu phản ứng histamin).",
+        food: "Ăn thanh đạm, nhiều rau củ tươi giàu chất chống oxy hóa. Tránh xa hải sản lạ, đồ tanh, đồ nướng, thức ăn đóng hộp nhiều chất bảo quản trong đợt dị ứng.",
+        action: "Tắm bằng nước ấm vừa phải (tránh tắm nước quá nóng làm khô da và ngứa ngáy dữ dội hơn), mặc đồ cotton thoáng mát, tránh gãi làm trầy xước niêm mạc da."
+      },
+
+      // TỔNG THỂ NỀN TẢNG
+      general_detox: {
+        system: "Thân Tâm Toàn Diện",
+        title: "Phục Hồi Thân Tâm & Cân Bằng Nhịp Sinh Học Tự Nhiên",
+        icon: "",
+        drink: "Uống đủ nước ấm rải đều từng ngụm nhỏ suốt cả ngày. Uống thêm nước đậu đen rang ấm hoặc trà thảo mộc nhẹ nhàng.",
+        food: "Ưu tiên thực phẩm nguyên bản tươi sạch: các món hấp, luộc thanh đạm, nhiều rau xanh và ngũ cốc nguyên cám. Hạn chế tối đa đồ chiên xào, thức ăn nhanh và đồ ngọt.",
+        action: "Dành 15 phút ngâm chân nước ấm trước khi ngủ, tập hít thở sâu vào buổi sáng và duy trì thói quen ngủ sớm trước 22h30 để cơ thể tự chữa lành."
+      }
+    };
+
+    // --------------------------------------------------------------------------
+    // TÍNH NĂNG: TỰ ĐÁNH BIỂU HIỆN & TRẢ LỜI TỰ ĐỘNG THÔNG MINH (ĐÃ FIX CHÍNH XÁC)
+    // --------------------------------------------------------------------------
+    function addChipText(text) {
+      const textarea = document.getElementById('freeformInput');
+      if (textarea.value.trim() === '') {
+        textarea.value = text;
+      } else {
+        textarea.value += ', ' + text;
+      }
+      textarea.focus();
+    }
+
+    // Hàm chuẩn hóa tiếng Việt bỏ dấu để tìm kiếm chính xác kể cả khi khách gõ không dấu hoặc gõ nhanh
+    function stripVN(str) {
+      if (!str) return '';
+      return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'd')
+        .trim();
+    }
+
+    // --------------------------------------------------------------------------
+    // TÍNH NĂNG ĐẶC BIỆT: BÓC TÁCH MẮT XÍCH NGẦM THÂN TÂM (TAB 2)
+    // Giúp khách hàng nhìn thấu căn nguyên gốc rễ kết nối giữa các hệ cơ quan
+    // Không đưa kế hoạch 3 việc làm ngày để khách liên hệ Thủy khi cần lộ trình sâu
+    // --------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
+    // TÍNH NĂNG ĐẶC BIỆT: BÓC TÁCH MẮT XÍCH NGẦM THÂN TÂM (TAB 2)
+    // Đơn giản, gần gũi, bám sát triết lý nuôi dưỡng tự nhiên từ các ebook của Xếp Thủy
+    // Không dùng thuật ngữ chuyên môn phức tạp, tránh xung đột trường phái
+    // --------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
+    // TÍNH NĂNG ĐẶC BIỆT: BÓC TÁCH MẮT XÍCH NGẦM THÂN TÂM (TAB 2)
+    // Đơn giản, gần gũi, có dẫn chứng từ các tác phẩm y học nổi tiếng thế giới
+    // kết hợp chặt chẽ với các cuốn sách của Thanh Thủy ('Phần Lớn Bạn Là Nước', 'Bạn Được Làm Từ Bữa Ăn')
+    // --------------------------------------------------------------------------
+    const HiddenChainKnowledge = {
+      // 1. DA LIỄU & TIÊU HÓA - GAN - GIẤC NGỦ
+      skin: {
+        system: "Làn Da • Đường Tiêu Hóa • Giấc Ngủ & Thải Độc",
+        badge: "Màng Ẩm Tự Nhiên & Thải Độc Đêm",
+        icon: "",
+        title: "Khi Làn Da Khô Ráp, Thiếu Ẩm, Sạm Màu, Kém Mềm Mại",
+        symptom: "Làn da khô căng, bong tróc nhẹ hoặc sần sùi, thiếu độ bóng mượt tự nhiên dù đã bôi nhiều kem dưỡng bề mặt.",
+        diagram: ["Da khô ráp, thiếu sức sống", "➔", "Đường ruột kém hấp thu dưỡng chất", "➔", "Thiếu nước tế bào & Thức khuya"],
+        mechanism: "Theo y học da liễu tự nhiên và như Thủy chia sẻ trong cuốn 'Phần Lớn Bạn Là Nước': Làn da là tấm gương phản chiếu trung thực của hệ tiêu hóa và chất lượng giấc ngủ. Khi đường ruột làm việc mệt mỏi hoặc cơ thể thiếu nước ấm nuôi dưỡng từng tế bào, lớp màng ẩm tự nhiên bảo vệ bề mặt da sẽ bị khô rát. Kèm theo đó, nếu bạn có thói quen ngủ muộn, lá gan không có đủ thời gian thanh lọc độc tố vào ban đêm, khiến làn da bên ngoài biểu hiện sần sùi, khô căng và mất đi độ đàn hồi mướt mát tự nhiên.",
+        rootCause: "Gốc rễ nằm ở việc nuôi dưỡng màng ẩm từ bên trong: uống nước ấm rải đều từng ngụm nhỏ suốt ngày, bổ sung chất béo lành mạnh từ thực vật (quả bơ, các loại hạt) và ngủ sớm trước 22h30 để da đón nhận nguồn năng lượng tái tạo tự nhiên.",
+        quote: "Làn da không chỉ cần được thoa dưỡng bên ngoài, da đang lên tiếng nhắc bạn về một đường ruột cần được xoa dịu và một giấc ngủ cần được vỗ về từ bên trong."
+      },
+
+      hair: {
+        system: "Nang Tóc • Dòng Chảy Khí Huyết • Thận Khí",
+        badge: "Khí Huyết Nuôi Dưỡng Nang Tóc",
+        icon: "",
+        title: "Khi Nang Tóc Yếu, Tóc Rụng Nhiều, Khô Xơ",
+        symptom: "Tóc rụng từng nắm khi gội hoặc chải, sợi tóc mảnh, chẻ ngọn và thiếu sức sống tự nhiên.",
+        diagram: ["Nang tóc yếu & rụng nhiều", "➔", "Dòng máu nuôi dưỡng da đầu bị giảm", "➔", "Khí huyết và năng lượng thân thể suy giảm"],
+        mechanism: "Theo quy luật tự nhiên của thân thể, tóc được nuôi dưỡng từ phần dư của khí huyết. Khi cơ thể mệt mỏi, làm việc quá sức hoặc chịu nhiều căng thẳng kéo dài, máu huyết sẽ ưu tiên dồn vào nuôi các cơ quan trọng yếu bên trong (tim, gan, não). Vùng da đầu là nơi xa nhất của dòng tuần hoàn sẽ bị giảm lượng máu nuôi dưỡng đầu tiên, khiến nang tóc bị đói dinh dưỡng, teo nhỏ và dễ gãy rụng.",
+        rootCause: "Gốc rễ không nằm ở dầu gội bên ngoài mà nằm ở nguồn khí huyết bên trong. Cần bồi bổ dinh dưỡng ấm lành, mát-xa nhẹ nhàng da đầu mỗi tối và giữ cho tâm trí được thảnh thơi, an định.",
+        quote: "Mỗi sợi tóc rụng là lời nhắn nhủ thân thương rằng cơ thể bạn đang cần được bồi bổ khí huyết và giải tỏa bớt những âu lo trong lòng."
+      },
+
+      allergy: {
+        system: "Làn Da • Sức Đề Kháng Tự Nhiên • Thanh Lọc Gan",
+        badge: "Thanh Lọc Cơ Thể & Đề Kháng Tự Nhiên",
+        icon: "",
+        title: "Khi Làn Da Mẩn Ngứa, Dị Ứng Thời Tiết, Nổi Mề Đay",
+        symptom: "Da dễ nổi mẩn ngứa, rấm rứt khó chịu khi thời tiết trở lạnh, khi ăn đồ lạ hoặc khi cơ thể mệt mỏi.",
+        diagram: ["Da nổi sẩn ngứa, mẫn cảm", "➔", "Lá gan bị quá tải tích tụ nhiệt nóng", "➔", "Sức đề kháng tự nhiên bị suy giảm"],
+        mechanism: "Như cuốn sách y học nổi tiếng 'Ruột Ơi Là Ruột' (Bác sĩ Giulia Enders) chỉ ra: Mẩn ngứa ngoài da thực chất là tín hiệu báo động của một cơ thể đang tích tụ nhiều nhiệt nóng bên trong. Khi hệ tiêu hóa mệt mỏi và lá gan phải làm việc quá công suất để đào thải các chất cặn bã, những chất gây kích ứng sẽ phát tán ra dưới da. Khi gặp tác nhân thời tiết giao mùa hoặc gió lạnh, lớp màng bảo vệ da yếu ớt lập tức kích hoạt phản ứng ngứa ngáy, nổi sẩn.",
+        rootCause: "Gốc rễ là làm mát và thanh lọc cho lá gan bằng các món ăn thanh đạm nguyên bản, uống đủ nước ấm thanh lọc và bảo vệ thân thể tránh nhiễm hàn lạnh đột ngột.",
+        quote: "Cơn ngứa ngáy ngoài da là lời mách bảo dịu dàng rằng lá gan và hệ miễn dịch bên trong đang cần một khoảng nghỉ thanh sạch, nhẹ nhõm."
+      },
+
+      // 2. HỆ HÔ HẤP & ĐỀ KHÁNG ĐƯỜNG RUỘT - HÀN KHÍ
+      throat: {
+        system: "Đường Hô Hấp • Sức Đề Kháng Đường Ruột • Khí Huyết Nhiễm Hàn",
+        badge: "Lá Chắn Đề Kháng & Giữ Ấm Kinh Lạc",
+        icon: "",
+        title: "Khi Viêm Họng, Ho, Nhạy Cảm Khi Giao Mùa Đổi Thời Tiết",
+        symptom: "Cổ họng khô rát, ho khan hoặc có đờm, rất dễ bị viêm sưng mỗi khi thời tiết thay đổi, trở trời hoặc nằm máy lạnh.",
+        diagram: ["Cổ họng khô rát, dễ ho khi trở trời", "➔", "Lá chắn đề kháng tự nhiên suy giảm", "➔", "Nhiễm lạnh từ lòng bàn chân hoặc cổ ngực"],
+        mechanism: "Như cuốn sách y học nổi tiếng 'Ruột Ơi Là Ruột' (Bác sĩ Y khoa Giulia Enders) chỉ ra: phần lớn sức đề kháng tự nhiên của cơ thể cư ngụ ngay tại đường ruột. Vòm họng là cửa ngõ đầu tiên đón nhận luồng không khí hít thở. Khi thời tiết giao mùa thay đổi đột ngột, nếu hệ tiêu hóa đang mệt mỏi và thân thể bị nhiễm hàn khí từ lòng bàn chân hoặc vùng lưng, niêm mạc họng sẽ mất đi lớp bảo vệ tự nhiên, khiến bạn rất dễ bị ngứa cổ, rát họng và ho kéo dài.",
+        rootCause: "Gốc rễ là giữ ấm đôi chân và vùng cổ ngực, nuôi dưỡng lại sức đề kháng tự nhiên bằng thực phẩm ấm nóng lành tính và hạn chế tối đa đồ ăn nước uống quá lạnh.",
+        quote: "Cổ họng nhạy cảm không phải do yếu ớt, mà là hồi chuông nhắc bạn giữ ấm thân thể và nâng đỡ lại sức đề kháng từ bên trong."
+      },
+
+      sinus: {
+        system: "Đường Thở • Vùng Xoang Đầu Mặt • Tiêu Hóa Ẩm Thấp",
+        badge: "Thông Khí Xoang & Giảm Ẩm Trệ",
+        icon: "",
+        title: "Khi Viêm Xoang, Sổ Mũi, Ngạt Mũi, Nặng Đầu",
+        symptom: "Nặng vùng trán hốc mắt, nghẹt mũi khó thở về đêm, hắt hơi liên tục khi gặp gió lạnh hoặc lúc sáng sớm.",
+        diagram: ["Vùng xoang ứ đọng dịch ẩm", "➔", "Tiêu hóa ẩm trệ sinh đờm nhớt", "➔", "Đường thở mẫn cảm trước gió lạnh"],
+        mechanism: "Theo cách nhìn thuận tự nhiên của thân thể, khi hệ tiêu hóa hoạt động chậm chạp do thói quen ăn nhiều đồ ngọt, đồ lạnh hoặc sữa béo, cơ thể sẽ sinh ra nhiều dịch ẩm nhớt tích tụ. Lượng dịch nhớt này theo tuần hoàn dồn lên các hốc xoang vùng đầu mặt. Khi gặp thời tiết lạnh hoặc độ ẩm cao, niêm mạc xoang bị phồng rộp làm bít tắc đường thở tự nhiên.",
+        rootCause: "Gốc rễ là làm ấm bụng và giảm bớt các món ăn sinh ẩm nhớt, giữ ấm đường thở bằng nước ấm và xông hơi thảo mộc tự nhiên để khai thông các hốc xoang.",
+        quote: "Làm ấm bụng và làm sạch hệ tiêu hóa chính là chiếc chìa khóa tự nhiên để hốc xoang lấy lại sự thông thoáng, nhẹ nhõm."
+      },
+
+      // 3. CƠ XƯƠNG KHỚP & CỘT SỐNG
+      body: {
+        system: "Cơ Vai Gáy & Cột Sống • Thần Kinh Căng Thẳng • Nước Tế Bào",
+        badge: "Giải Tỏa Căng Gồng & Nuôi Dưỡng Đĩa Đệm",
+        icon: "",
+        title: "Khi Cổ Vai Gáy Căng Cứng, Đau Thắt Lưng, Thoái Hóa",
+        symptom: "Cơ vai gáy cứng như đá, đau nhức ê ẩm vùng thắt lưng, cảm giác nặng trịch phần thân trên sau ngày làm việc.",
+        diagram: ["Vai gáy co cứng, đau mỏi lưng", "➔", "Tâm trí căng thẳng gồng siết cơ bắp", "➔", "Đĩa đệm thiếu nước bôi trơn"],
+        mechanism: "Theo giải phẫu sinh học cột sống và như Thủy chia sẻ trong cuốn 'Phần Lớn Bạn Là Nước': các đĩa đệm nâng đỡ cột sống chứa phần lớn là nước. Khi bạn ngồi một chỗ quá lâu và ít uống nước ấm, đĩa đệm thiếu độ ẩm bôi trơn và bị xẹp cơ học, gây đau nhức ê ẩm lan tỏa. Đồng thời, khi bạn tập trung làm việc nhiều giờ hoặc có những lo âu chưa giải tỏa, cơ thể vô thức kích hoạt phản xạ 'gồng siết' các bó cơ vùng cổ vai gáy để gánh đỡ áp lực, làm máu huyết khó lưu thông và gây mỏi nhức nặng nề.",
+        rootCause: "Gốc rễ nằm ở sự căng gồng tiềm thức của tâm trí và thói quen thiếu nước ấm nuôi đĩa đệm. Cần trả lại sự thả lỏng cho cơ bắp, bổ sung nước ấm rải đều và vận động vươn giãn giữa giờ làm việc.",
+        quote: "Bờ vai bạn không chỉ gánh công việc, mà đang vô thức gánh cả những lo âu chưa được buông xả."
+      },
+
+      calcium: {
+        system: "Khung Xương & Dịch Khớp • Hấp Thu Dinh Dưỡng • Thói Quen Vận Động",
+        badge: "Hấp Thu Dưỡng Chất & Bôi Trơn Dịch Khớp",
+        icon: "",
+        title: "Khi Chuột Rút Ban Đêm, Khớp Lạo Xạo, Thiếu Khoáng Chất",
+        symptom: "Co rút bắp chân đột ngột khi ngủ, khớp gối khô kêu lục cục khi leo cầu thang, móng tay giòn dễ gãy.",
+        diagram: ["Chuột rút ban đêm, khớp khô lạo xạo", "➔", "Đường ruột hấp thu khoáng chất kém", "➔", "Thiếu ánh nắng và vận động nuôi khớp"],
+        mechanism: "Chuột rút hay khô khớp thường bắt nguồn từ việc cơ thể không hấp thu đủ khoáng chất tự nhiên từ thức ăn hằng ngày. Khi đường ruột mệt mỏi, kết hợp với thói quen ít vận động dưới ánh nắng sớm và ăn nhiều đồ ngọt làm hao hụt lượng canxi tự nhiên, các cơ bắp dễ bị co rút đột ngột và dịch nhờn bôi trơn ổ khớp bị suy giảm.",
+        rootCause: "Gốc rễ là cải thiện khả năng hấp thu của đường ruột, bổ sung nguồn canxi thực vật lành tính (như mè đen, các loại đậu hạt), tắm nắng sớm đầu ngày và xoa bóp bắp chân bằng nước ấm trước khi ngủ.",
+        quote: "Khung xương vững chãi và khớp dẻo dai bắt đầu từ một hệ tiêu hóa khỏe mạnh và nguồn dưỡng chất thuần khiết của tự nhiên."
+      },
+
+      // 4. HỆ THẦN KINH & GIẤC NGỦ
+      sleep: {
+        system: "Hệ Thần Kinh • Dạ Dày Ban Đêm • Nhịp Sinh Học Tự Nhiên",
+        badge: "Thả Lỏng Tâm Trí & Dạ Dày Nhẹ Nhõm",
+        icon: "",
+        title: "Khi Khó Vào Giấc, Mất Ngủ, Trằn Trọc Ban Đêm",
+        symptom: "Lên giường nằm mắt mở thao láo, tâm trí chạy đua suy nghĩ miên man, phải mất nhiều thời gian trằn trọc mới chập chờn vào giấc.",
+        diagram: ["Nằm trằn trọc, khó vào giấc", "➔", "Tâm trí chưa kịp hạ nhiệt sau ngày dài", "➔", "Bữa tối ăn muộn làm bụng nặng nề"],
+        mechanism: "Như chuyên gia thần kinh học Matthew Walker đã đúc kết trong cuốn sách y học nổi tiếng 'Sao Chúng Ta Lại Ngủ' (Why We Sleep): Giấc ngủ tự nhiên chỉ có thể mở cánh cửa khi cả thân và tâm cùng được thả lỏng an toàn. Nếu ban ngày bạn suy nghĩ quá nhiều khiến tâm trí duy trì trạng thái cảnh giác sinh tồn vào ban đêm, cộng thêm bữa tối ăn quá muộn hoặc ăn nhiều đồ khó tiêu khiến dạ dày phải làm việc cật lực, não bộ sẽ không thể phát tín hiệu buồn ngủ tự nhiên, khiến bạn nằm trằn trọc mắt mở thao láo.",
+        rootCause: "Gốc rễ là giảm tải cho dạ dày vào bữa tối, ngâm chân nước ấm trước khi ngủ để kéo nhiệt ấm xuống dưới bàn chân, giúp tâm trí được an tĩnh và dễ dàng chìm vào giấc ngủ sâu.",
+        quote: "Giấc ngủ không đến từ việc cố gắng ngủ, mà đến khi bạn cho phép tâm trí được an toàn hạ gánh âu lo."
+      },
+
+      deep_sleep: {
+        system: "Giấc Ngủ Tầng Sâu • Dòng Máu Nuôi Não • Thải Độc Ban Đêm",
+        badge: "Giấc Ngủ An Yên & Tái Tạo Sinh Lực",
+        icon: "",
+        title: "Khi Giấc Ngủ Chập Chờn, Mơ Nhiều, Dễ Giật Mình Thức Giấc",
+        symptom: "Ngủ dễ tỉnh giấc lúc nửa đêm, mơ màng mộng mị, sáng dậy thấy đầu óc nặng trịch mệt mỏi như chưa từng được ngủ.",
+        diagram: ["Thức giấc nửa đêm, mơ mộng nhiều", "➔", "Lá gan bị ứ nhiệt trong khung giờ thải độc", "➔", "Não bộ thiếu oxy và sự tĩnh lặng"],
+        mechanism: "Theo nghiên cứu sinh lý học giấc ngủ trong cuốn 'Sao Chúng Ta Lại Ngủ' và đồng hồ sinh học tự nhiên: Khung giờ nửa đêm về sáng là lúc thân thể cần một khoảng nghỉ tuyệt đối để lá gan thanh lọc và làm sạch tế bào. Khi cơ thể tích tụ nhiều áp lực hoặc ăn đồ dầu mỡ vào buổi tối, quá trình thanh lọc bị nghẽn làm hệ thần kinh bồn chồn bất an, kích hoạt các giấc ngủ nông chập chờn và khiến bạn dễ giật mình tỉnh giấc giữa đêm.",
+        rootCause: "Gốc rễ là ăn tối thanh nhẹ sớm trước giờ đi ngủ, giữ cho phòng ngủ thông thoáng và tạo không gian tĩnh lặng để hệ thần kinh được nghỉ ngơi trọn vẹn.",
+        quote: "Một giấc ngủ sâu là món quà chữa lành kỳ diệu nhất mà cơ thể tự thưởng cho chính mình sau mỗi ngày dài."
+      },
+
+      headache: {
+        system: "Não Bộ • Dòng Máu Nuôi Cổ Gáy • Nhịp Thở & Oxy",
+        badge: "Lưu Thông Khí Huyết & Thở Sâu",
+        icon: "",
+        title: "Khi Đau Đầu Ê Ẩm, Nặng Trán, Choáng Váng, Tiền Đình",
+        symptom: "Đầu nặng trịch như bị vòng kim cô siết chặt, đau nửa đầu hoặc choáng váng khi thay đổi tư thế đứng ngồi.",
+        diagram: ["Đau nhức đầu, nặng trán", "➔", "Cơ cổ gáy co cứng chèn ép đường dẫn máu", "➔", "Lượng máu và oxy lên não bị chậm nhịp"],
+        mechanism: "Theo sinh lý học tuần hoàn não bộ: Vùng cổ gáy là chiếc cầu nối duy nhất đưa máu và dưỡng khí từ tim lên nuôi dưỡng toàn bộ não bộ. Khi các cơ vùng vai gáy bị co cứng do ngồi cúi làm việc hoặc chịu áp lực tâm lý, đường dẫn máu bị chèn ép thu hẹp. Khi lượng máu và oxy lên não không đủ nhịp nhàng, tế bào não lập tức phát tín hiệu báo động bằng những cơn đau đầu âm ỉ, nặng trán hoặc choáng váng khi đứng lên ngồi xuống đột ngột.",
+        rootCause: "Gốc rễ là giải phóng sự căng cứng của cơ bắp vùng cổ gáy, tập thở sâu chậm rãi để đưa dưỡng khí lên não và duy trì uống đủ nước ấm thanh lọc cơ thể.",
+        quote: "Cơn đau đầu là tín hiệu khẩn khoản của tế bào não nhắc bạn hãy dừng lại, hít thở và thả lỏng đôi bờ vai."
+      },
+
+      stress: {
+        system: "Hệ Thần Kinh • Năng Lượng Tâm Trí • Khoảng Lặng Tự Thân",
+        badge: "Tái Tạo Năng Lượng & Thả Lỏng Thân Tâm",
+        icon: "",
+        title: "Khi Căng Thẳng, Lo Âu, Dễ Cáu Gắt, Não Sương Mù Hay Quên",
+        symptom: "Tâm trí bồn chồn khó tập trung, hay quên trước quên sau, cảm giác quá tải với những việc vụn vặt thường ngày.",
+        diagram: ["Tâm trí bồn chồn, não sương mù", "➔", "Hệ thần kinh chạy đua trong áp lực liên tục", "➔", "Cạn kiệt năng lượng vi chất nuôi dưỡng"],
+        mechanism: "Như chuyên gia thần kinh học Matthew Walker chia sẻ trong 'Sao Chúng Ta Lại Ngủ': Khi tâm trí phải đối diện với quá nhiều áp lực dồn dập mà không có khoảng nghỉ, hệ thần kinh luôn ở trong trạng thái 'báo động đỏ'. Trạng thái gồng mình kéo dài này làm cạn kiệt năng lượng vi chất tự nhiên, khiến não bộ rơi vào tình trạng sương mù uể oải, suy giảm trí nhớ và tâm trạng trở nên nhạy cảm, dễ cáu kỉnh.",
+        rootCause: "Gốc rễ là trao cho tâm trí những khoảng lặng tĩnh tại trong ngày, hít thở sâu, đi dạo dưới bóng cây xanh và nuôi dưỡng não bộ bằng thực phẩm nguyên bản giàu dinh dưỡng.",
+        quote: "Tâm trí mệt mỏi cần được bao dung và che chở bằng những khoảng lặng êm dịu, không phán xét."
+      },
+
+      // 5. HỆ TIÊU HÓA & ĐƯỜNG RUỘT
+      gut: {
+        system: "Dạ Dày • Cảm Xúc & Tâm Trí • Thói Quen Ăn Uống",
+        badge: "Ăn Trong Tĩnh Tại & Nuôi Dưỡng Tỳ Vị",
+        icon: "",
+        title: "Khi Dạ Dày Trào Ngược, Ợ Hơi Ợ Chua, Ậm Ạch Khó Tiêu",
+        symptom: "Nóng rát thượng vị, thức ăn ứ nghẹn ở cổ họng sau ăn, bụng óc ách nhiều giờ liền không tiêu.",
+        diagram: ["Ợ hơi, trào ngược, tức bụng", "➔", "Ăn trong vội vã hoặc tâm trạng lo toan", "➔", "Dạ dày thiếu dịch tiêu hóa tự nhiên"],
+        mechanism: "Như công trình nghiên cứu nổi tiếng về Trục Não - Ruột trong cuốn 'The Mind-Gut Connection' (Bác sĩ Y khoa Emeran Mayer) và như Thủy chia sẻ trong cuốn 'Bạn Được Làm Từ Bữa Ăn': Dạ dày phản ứng cực kỳ nhạy cảm với cảm xúc và tâm trí. Khi bạn vừa ăn vừa suy nghĩ, vừa lướt điện thoại hoặc ăn quá vội, năng lượng của cơ thể bị kéo lên đầu thay vì đổ về dạ dày, khiến dịch tiêu hóa tiết ra không đủ. Thức ăn nằm ứ đọng bị lên men sinh hơi, đẩy ngược dịch chua lên cổ họng gây nóng rát và ậm ách khó chịu.",
+        rootCause: "Gốc rễ là học cách ăn trong tĩnh tại và nhai kỹ từng miếng ăn, không uống nhiều nước lạnh ngay trong bữa ăn và ưu tiên các món hấp, luộc thanh đạm dễ tiêu hóa.",
+        quote: "Mỗi bữa ăn là một cuộc hẹn trân quý với sức khỏe. Hãy trao cho dạ dày sự bình an khi đón nhận thức ăn."
+      },
+
+      colon: {
+        system: "Đại Tràng • Nhu Động Ruột Tự Nhiên • Nước Ấm Đầu Ngày",
+        badge: "Làm Sạch Đường Ruột & Đại Tiện Tự Nhiên",
+        icon: "",
+        title: "Khi Đại Tràng Co Thắt, Táo Bón, Đi Ngoài Thất Thường",
+        symptom: "Phân khô cứng, nhiều ngày mới đi một lần hoặc dễ đau bụng quặn mót rặn, cảm giác đi ngoài không hết phân.",
+        diagram: ["Táo bón, đại tràng bất ổn", "➔", "Thiếu chất xơ mềm & nước ấm buổi sáng", "➔", "Chất thải ứ đọng lâu ngày trong ruột"],
+        mechanism: "Như cuốn sách y khoa nổi tiếng 'Ruột Ơi Là Ruột' (Bác sĩ Y khoa Giulia Enders) chia sẻ: Đại tràng là chặng cuối chịu trách nhiệm tái hấp thu nước và đào thải cặn bã ra ngoài. Khi cơ thể thiếu thói quen uống một ly nước ấm thanh lọc vào đầu buổi sáng hoặc chế độ ăn thiếu rau xanh có độ nhớt mềm tự nhiên, khối chất thải bị khô cứng và di chuyển rất chậm. Khi chất cặn bã lưu lại quá lâu, cơ thể sẽ hấp thu ngược các chất không tốt vào máu, gây nóng trong, mụn nhọt và nặng nề thân thể.",
+        rootCause: "Gốc rễ là thiết lập thói quen uống 1 ly nước ấm ngay khi thức dậy, bổ sung chất xơ tự nhiên từ khoai lang, rau mồng tơi, yến mạch và rèn luyện thói quen đi vệ sinh đúng giờ mỗi sáng.",
+        quote: "Một đường ruột sạch sẽ, thông suốt là nền tảng nguyên thủy của một thân thể nhẹ nhõm và tràn đầy sinh khí."
+      },
+
+      appetite: {
+        system: "Hệ Tiêu Hóa • Vị Giác Tự Nhiên • Ngọn Lửa Tỳ Vị",
+        badge: "Đánh Thức Vị Giác & Bữa Ăn Hạnh Phúc",
+        icon: "",
+        title: "Khi Ăn Không Ngon Miệng, Nhạt Mồm Nhạt Miệng, Kém Hấp Thu",
+        symptom: "Không có cảm giác đói tự nhiên, ăn uống qua bữa như làm nghĩa vụ, thấy thức ăn ngấy ngán.",
+        diagram: ["Nhạt miệng, chán ăn, ăn không tiêu", "➔", "Cơ thể mệt mỏi thiếu enzym tiêu hóa", "➔", "Ngọn lửa tỳ vị vận hóa suy giảm"],
+        mechanism: "Vị giác là thước đo sinh động của sức khỏe tỳ vị. Khi cơ thể mệt mỏi do căng thẳng kéo dài hoặc sau ốm, dịch vị tiêu hóa tiết ra rất ít. Thức ăn đưa vào không được đón nhận trọn vẹn khiến bạn cảm thấy nhạt miệng, ăn không thấy vị ngọt tự nhiên của thực phẩm và hấp thu kém.",
+        rootCause: "Gốc rễ là đánh thức lại ngọn lửa tiêu hóa bằng các món súp ấm, cháo loãng thanh nhẹ, ăn uống đúng giờ và cho phép bản thân được nghỉ ngơi sâu.",
+        quote: "Khi cơ thể được nghỉ ngơi đúng nghĩa, vị giác tự nhiên và niềm vui ăn uống sẽ tự khắc quay trở lại."
+      },
+
+      // 6. HỆ TIM MẠCH & TUẦN HOÀN MÁU
+      cardio: {
+        system: "Tim Mạch • Dòng Chảy Khí Huyết • Làm Ấm Tứ Chi",
+        badge: "Lưu Thông Khí Huyết & Trái Tim Êm Dịu",
+        icon: "",
+        title: "Khi Tim Đập Nhanh, Đánh Trống Ngực, Lạnh Buốt Tay Chân",
+        symptom: "Đầu ngón tay ngón chân luôn lạnh ngắt dù trời ấm, tim thỉnh thoảng đập thình thịch hồi hộp bất an không rõ lý do.",
+        diagram: ["Tim đập nhanh, chân tay lạnh buốt", "➔", "Khí huyết lưu thông kém đến tứ chi", "➔", "Căng thẳng làm co các mạch máu nhỏ"],
+        mechanism: "Theo sinh lý học tuần hoàn thân thể: Khi cơ thể mệt mỏi hoặc khí huyết kém lưu thông, dòng máu sẽ ưu tiên dồn về bảo vệ các cơ quan trọng yếu bên trong (tim, não) và co thắt các mạch máu nhỏ ở xa tim nhất, khiến bàn tay và bàn chân luôn trong tình trạng buốt lạnh. Đồng thời, tim phải đập nhanh hơn để cố gắng bơm đủ máu đi khắp cơ thể, tạo cảm giác hồi hộp, đánh trống ngực.",
+        rootCause: "Gốc rễ là bồi bổ khí huyết bằng dinh dưỡng ấm lành, giữ ấm đôi chân bằng thói quen ngâm nước gừng ấm và tập các nhịp thở chậm sâu để thư giãn hệ tuần hoàn.",
+        quote: "Bàn chân ấm và trái tim êm dịu là biểu hiện đẹp đẽ nhất của một dòng chảy khí huyết thông suốt."
+      },
+
+      // 7. HỆ BÀI TIẾT & GAN THẬN
+      excretory: {
+        system: "Thận Khí • Chức Năng Bài Tiết • Giấc Ngủ Đêm",
+        badge: "Dưỡng Thận Khí & Cân Bằng Nước",
+        icon: "",
+        title: "Khi Tiểu Đêm Nhiều Lần, Nóng Trong Người, Thận Quá Tải",
+        symptom: "Ban đêm phải thức dậy đi tiểu nhiều lần làm đứt đoạn giấc ngủ, lưng mỏi vùng thắt lưng, cảm giác nóng âm ỉ bên trong.",
+        diagram: ["Tiểu đêm gián đoạn giấc ngủ", "➔", "Thận mệt mỏi vì thói quen ăn uống thừa muối", "➔", "Nhiệt nóng từ gan thận tích tụ"],
+        mechanism: "Ban đêm là khoảng thời gian quý báu để thận được nghỉ ngơi và cô đặc nước tiểu. Nếu ban ngày ăn nhiều đồ mặn, uống nước ngọt hoặc uống nước dồn dập sát giờ ngủ, thận phải gồng mình lọc nước liên tục khiến bạn phải thức giấc giữa đêm. Cùng lúc đó, khi gan và thận bị quá tải chuyển hóa, nhiệt nóng tích tụ bên trong sẽ gây cảm giác nóng bức, bứt rứt.",
+        rootCause: "Gốc rễ là uống nước rải đều từng ngụm vào ban ngày, giảm uống nước sát giờ đi ngủ, kết hợp ngâm chân nước ấm trước khi ngủ để dưỡng ấm thận khí.",
+        quote: "Nuôi dưỡng thận khí là giữ gìn nguồn năng lượng gốc rễ quý báu cho sự dẻo dai và tuổi thọ của bạn."
+      },
+
+      mouth_heat: {
+        system: "Khoang Miệng • Nhiệt Hỏa Thân Thể • Thanh Mát Lá Gan",
+        badge: "Thanh Can Giáng Hỏa & Dưỡng Niêm Mạc",
+        icon: "",
+        title: "Khi Nhiệt Miệng, Lở Môi, Nóng Rát Khoang Miệng",
+        symptom: "Xuất hiện các nốt loét trắng đỏ đau rát ở má trong, nướu răng, khô miệng và khát nước liên tục.",
+        diagram: ["Nhiệt miệng đau rát, khô cổ", "➔", "Nhiệt nóng từ bên trong bốc lên khoang miệng", "➔", "Cơ thể thiếu ngủ và thiếu dưỡng chất xanh"],
+        mechanism: "Nhiệt miệng không chỉ do ăn đồ cay nóng bên ngoài. Trong cơ thể, khi thức khuya hoặc căng thẳng kéo dài, nhiệt nóng tích tụ ở lá gan không được giải phóng sẽ theo kinh mạch bốc ngược lên khoang miệng, làm tổn thương lớp niêm mạc mỏng manh và tạo thành các vết nhiệt loét đau rát.",
+        rootCause: "Gốc rễ là làm mát cơ thể từ bên trong bằng các loại rau xanh thanh mát, uống nước sắn dây hoặc nước dừa ấm, giữ tâm bình thản và ngủ đủ giấc.",
+        quote: "Nốt nhiệt miệng là tiếng chuông nhắc bạn hãy hạ nhiệt nhịp sống và bớt đi những hối hả bức bối bên trong."
+      },
+
+      // 8. HỆ NỘI TIẾT & CHUYỂN HÓA
+      endocrine: {
+        system: "Hệ Nội Tiết • Nhịp Sinh Học Nữ Giới • Điều Hòa Gan",
+        badge: "Cân Bằng Nội Tiết Tự Nhiên & Dịu Cơn Bốc Hỏa",
+        icon: "",
+        title: "Khi Rối Loạn Nội Tiết, Tiền Mãn Kinh Bốc Hỏa, Chu Kỳ Bất Ổn",
+        symptom: "Cơn nóng bừng từ ngực lan lên mặt toát mồ hôi, chu kỳ kinh nguyệt thưa hoặc dày bất thường, tâm tính dễ xúc động.",
+        diagram: ["Cơn bốc hỏa, chu kỳ bất ổn", "➔", "Thân thể bước vào giai đoạn biến động sinh học", "➔", "Lá gan mệt mỏi chậm điều hòa chuyển hóa"],
+        mechanism: "Khi bước vào giai đoạn biến động sinh học hoặc khi cơ thể chịu nhiều căng thẳng, hệ nội tiết tự nhiên bị xáo trộn nhịp nhàng. Khi lá gan phải làm việc quá tải, việc điều hòa các hormone tự nhiên bị chậm nhịp, làm trung tâm điều nhiệt của cơ thể phát tín hiệu nhầm lẫn, dẫn đến những cơn nóng bừng mặt, toát mồ hôi đêm và cảm xúc dễ bồn chồn.",
+        rootCause: "Gốc rễ là bổ sung các dưỡng chất thực vật lành tính (như mầm đậu, hạt lanh, quả bơ), ăn uống thanh nhẹ để giảm tải cho gan và dành thời gian yêu thương, vỗ về thân tâm mỗi ngày.",
+        quote: "Mỗi biến chuyển nội tiết là một khúc quanh sinh học cần được đón nhận bằng tình yêu thương và sự chăm sóc dịu dàng nhất."
+      },
+
+      energy: {
+        system: "Năng Lượng Thân Thể • Bữa Ăn Ban Trưa • Ổn Định Dòng Máu",
+        badge: "Năng Lượng Bền Bỉ & Cân Bằng Bữa Ăn",
+        icon: "",
+        title: "Khi Tụt Năng Lượng Buổi Chiều, Cồn Cào Thèm Ngọt, Uể Oải",
+        symptom: "Cứ khoảng buổi chiều là người lừ đừ, mắt díu lại, thèm một ly trà sữa ngọt hoặc cà phê đậm để tỉnh táo.",
+        diagram: ["Uể oải đuối sức vào buổi chiều", "➔", "Bữa trưa nhiều tinh bột nhanh", "➔", "Năng lượng trong máu bị tụt dốc đột ngột"],
+        mechanism: "Bữa trưa nếu ăn quá nhiều tinh bột trắng hoặc đồ ngọt sẽ làm đường trong máu tăng vọt rất nhanh, nhưng cũng lao dốc không phanh chỉ sau một thời gian ngắn. Khi đường huyết rơi xuống đáy vào đầu giờ chiều, cơ thể rơi vào trạng thái thiếu hụt năng lượng khẩn cấp và kích hoạt cơn thèm ngọt gắt để cứu vãn, tạo nên vòng luẩn quẩn mệt mỏi và tích mỡ.",
+        rootCause: "Gốc rễ là cân bằng lại đĩa ăn bữa trưa (nhiều rau xanh tươi sạch, đạm lành mạnh và ngũ cốc nguyên cám) để duy trì dòng năng lượng ổn định, bền bỉ suốt buổi chiều.",
+        quote: "Năng lượng bền bỉ đến từ sự bình ổn của dòng máu, không phải từ những cú giật tạm thời của đường tinh luyện."
+      },
+
+      // TỔNG THỂ NỀN TẢNG
+      general_detox: {
+        system: "Thân Tâm Toàn Diện • Khả Năng Tự Chữa Lành • Nhịp Sinh Học",
+        badge: "Lắng Nghe Cơ Thể & Khởi Động Tự Phục Hồi",
+        icon: "",
+        title: "Tái Thiết Nhịp Sinh Học & Đánh Thức Năng Lực Tự Phục Hồi",
+        symptom: "Cơ thể mệt mỏi toàn thân, uể oải không rõ bệnh lý cụ thể, cảm giác các hệ cơ quan đều đang vận hành nặng nề.",
+        diagram: ["Toàn thân nặng nề, thiếu sức sống", "➔", "Cơ thể thiếu khoảng nghỉ sinh học tự nhiên", "➔", "Khả năng tự chữa lành bị tắc nghẽn"],
+        mechanism: "Cơ thể bạn là một ngôi đền kỳ diệu luôn có khả năng tự sửa chữa và hồi sinh mỗi ngày. Khi nhịp sống quá hối hả, ăn uống vội vàng và thiếu nước ấm nuôi tế bào, các cơ quan bài tiết bị quá tải. Cơ thể buộc phải phát tín hiệu mệt mỏi để nhắc bạn rằng: đã đến lúc cần chậm lại, cho thân thể một khoảng lặng để được thanh lọc và hồi phục tự nhiên từ gốc.",
+        rootCause: "Gốc rễ là uống nước ấm đúng cách rải đều tế bào, ăn thực phẩm nguyên bản tươi sạch, đi ngủ sớm trước 22h30 và dành 15 phút tĩnh lặng mỗi ngày để kết nối lại với chính mình.",
+        quote: "Cơ thể luôn biết cách tự chữa lành một cách phi thường, chỉ cần bạn chịu dừng lại và trao cho nó những điều kiện tự nhiên đúng đắn."
+      }
+    };
+
+    function analyzeFreeformText() {
+      const rawText = document.getElementById('freeformInput').value.trim();
+      if (!rawText) {
+        showToast("Bạn hãy gõ vài dòng biểu hiện của mình nhé!");
+        return;
+      }
+
+      AppState.lastFreeformText = rawText;
+      const lower = rawText.toLowerCase();
+      const norm = stripVN(rawText);
+
+      // Phân tách ngữ cảnh để tránh nhầm từ (ví dụ: 'dạ dày khó tiêu' không bị nhầm sang 'da khô')
+      const normWithoutStomach = norm.replace(/da day/g, '').replace(/bao tu/g, '');
+
+      // 1. HỆ THẦN KINH & GIẤC NGỦ
+      const hasSleep = norm.includes('kho ngu') || norm.includes('tran troc') || norm.includes('mat ngu') || 
+                       norm.includes('nam mai') || norm.includes('khong ngu duoc') || norm.includes('ko ngu duoc') || 
+                       norm.includes('ngu muon') || norm.includes('thuc dem');
+
+      const hasDeepSleep = norm.includes('chap chon') || norm.includes('khong sau') || norm.includes('ko sau') || 
+                           norm.includes('giat minh') || norm.includes('thuc giac') || norm.includes('tinh giac') || 
+                           norm.includes('tinh day') || norm.includes('mo nhieu');
+
+      const hasHeadache = norm.includes('dau dau') || norm.includes('nhuc dau') || norm.includes('nang tran') || 
+                          norm.includes('nang dau') || norm.includes('choang') || norm.includes('chong mat') || 
+                          norm.includes('e am') || norm.includes('hoa mat') || norm.includes('tien dinh') || 
+                          norm.includes('migraine') || norm.includes('dau nua dau');
+
+      const hasStress = norm.includes('stress') || norm.includes('cang thang') || norm.includes('lo au') || 
+                        norm.includes('bon chon') || norm.includes('ap luc') || norm.includes('cau gat') || 
+                        norm.includes('suy nhuoc') || norm.includes('nao suong mu') || norm.includes('hay quen');
+
+      // 2. HỆ HÔ HẤP & MIỄN DỊCH
+      const hasThroat = norm.includes('viem hong') || norm.includes('dau hong') || norm.includes('rat hong') || 
+                        norm.includes('rat co') || norm.includes('ngua co') || norm.includes('khan tieng') || 
+                        norm.includes('mat tieng') || norm.includes('ho khan') || norm.includes('ho co dom') || 
+                        norm.includes('ho gio') || (norm.includes('ho') && (norm.includes('bi ho') || norm.includes('hay ho') || norm.includes('con ho') || norm.includes('tieng ho'))) || 
+                        norm.includes('thoi tiet thay doi') || norm.includes('doi thoi tiet') || norm.includes('tro troi') ||
+                        norm.includes('cam cum') || norm.includes('cam lanh') || norm.includes('nhiem lanh') || 
+                        norm.includes('phe quan') || norm.includes('hen suyen') || norm.includes('de mac viem') || 
+                        norm.includes('de bi om') || norm.includes('hay bi om') || norm.includes('hut hoi') || norm.includes('tho nong');
+
+      const hasSinus = norm.includes('viem xoang') || norm.includes('xoang') || norm.includes('so mui') || 
+                       norm.includes('ngat mui') || norm.includes('chay nuoc mui') || norm.includes('hat xi') || 
+                       norm.includes('hat hoi') || norm.includes('viem mui');
+
+      // 3. HỆ TIM MẠCH & TUẦN HOÀN MÁU
+      const hasCardio = norm.includes('tim dap nhanh') || norm.includes('hoi hop') || norm.includes('danh trong nguc') || 
+                        norm.includes('huyet ap') || norm.includes('thieu mau') || norm.includes('tuan hoan') || 
+                        norm.includes('lanh tay chan') || norm.includes('tay chan lanh') || norm.includes('chan tay lanh') || 
+                        norm.includes('lanh buot') || norm.includes('xay xam') || norm.includes('dau nguc');
+
+      // 4. HỆ TIÊU HÓA & ĐƯỜNG RUỘT
+      const hasGut = norm.includes('bung') || norm.includes('day hoi') || norm.includes('chuong bung') || 
+                     norm.includes('kho tieu') || norm.includes('o hoi') || norm.includes('o chua') || 
+                     norm.includes('o nong') || norm.includes('trao nguoc') || norm.includes('da day') || 
+                     norm.includes('bao tu') || norm.includes('am ach') || norm.includes('vi khuan hp') || 
+                     norm.includes('viem loet');
+
+      const hasColon = norm.includes('dai trang') || norm.includes('tao bon') || norm.includes('tri') || 
+                       norm.includes('phan long') || norm.includes('di ngoai that thuong') || norm.includes('di ngoai nhieu');
+
+      const hasAppetite = norm.includes('khong ngon') || norm.includes('ko ngon') || norm.includes('chan an') || 
+                          norm.includes('nhat mom') || norm.includes('nhat mieng') || norm.includes('ngay') || 
+                          norm.includes('bieng an') || norm.includes('mat vi giac') || norm.includes('kem hap thu');
+
+      // 5. HỆ BÀI TIẾT & THẢI ĐỘC (GAN - THẬN)
+      const hasExcretory = norm.includes('tieu dem') || norm.includes('di tieu') || norm.includes('tieu buot') || 
+                           norm.includes('tieu rat') || norm.includes('soi than') || norm.includes('than yeu') || 
+                           norm.includes('suy than') || norm.includes('nuoc tieu vang') || norm.includes('men gan') || 
+                           norm.includes('gan nhiem mo') || norm.includes('thai doc gan') || norm.includes('phu the') || 
+                           norm.includes('tich nuoc') || norm.includes('tham quang');
+
+      const hasMouthHeat = norm.includes('nhiet mieng') || norm.includes('lo mieng') || norm.includes('nong trong') || 
+                           norm.includes('kho co') || norm.includes('kho moi') || norm.includes('khat nuoc');
+
+      // 6. HỆ CƠ - XƯƠNG - KHỚP
+      const hasBody = norm.includes('vai gay') || norm.includes('co gay') || norm.includes('moi vai') || 
+                      norm.includes('dau vai') || norm.includes('moi co') || norm.includes('dau lung') || 
+                      norm.includes('moi lung') || norm.includes('that lung') || norm.includes('thoat vi') || 
+                      norm.includes('dia dem') || norm.includes('cot song') || norm.includes('thoai hoa');
+
+      const hasCalcium = norm.includes('canxi') || norm.includes('chuot rut') || norm.includes('loang xuong') || 
+                         norm.includes('mong gion') || norm.includes('khop') || norm.includes('khop goi') || 
+                         norm.includes('lao xao') || norm.includes('te tay') || norm.includes('te chan') || 
+                         norm.includes('te bi') || norm.includes('gout') || norm.includes('gut');
+
+      // 7. HỆ NỘI TIẾT & CHUYỂN HÓA
+      const hasEndocrine = norm.includes('noi tiet') || norm.includes('kinh nguyet') || norm.includes('dau bung kinh') || 
+                           norm.includes('tre kinh') || norm.includes('boc hoa') || norm.includes('tien man kinh') || 
+                           norm.includes('kho han') || norm.includes('u xo') || norm.includes('tuyen giap') || 
+                           norm.includes('buou co') || norm.includes('chuyen hoa') || norm.includes('mo bung');
+
+      const hasEnergy = norm.includes('tut nang luong') || norm.includes('them ngot') || norm.includes('tra sua') || 
+                        norm.includes('met chieu') || norm.includes('ue oai') || norm.includes('duoi suc');
+
+      // 8. HỆ DA LIỄU & MIỄN DỊCH
+      const hasSkin = norm.includes('da kho') || norm.includes('kho da') || norm.includes('da xau') || 
+                      norm.includes('sam da') || norm.includes('da sam') || norm.includes('nam da') || 
+                      norm.includes('mun') || norm.includes('nut ne') || norm.includes('kho rap') || 
+                      norm.includes('khong duoc mem') || norm.includes('ko duoc mem') || norm.includes('kem mem') || 
+                      norm.includes('lan da') || norm.includes('da mat') || norm.includes('da de') ||
+                      (normWithoutStomach.includes('da ') && (normWithoutStomach.includes('kho') || normWithoutStomach.includes('sam') || normWithoutStomach.includes('nam') || normWithoutStomach.includes('khong dep') || normWithoutStomach.includes('ko dep') || normWithoutStomach.includes('bong troc')));
+
+      const hasHair = norm.includes('rung toc') || norm.includes('toc rung') || norm.includes('toc xo') || norm.includes('toc yeu') || norm.includes('hoi dau');
+
+      const hasAllergy = norm.includes('di ung') || norm.includes('me day') || norm.includes('man ngua') || norm.includes('ngua ngay') || norm.includes('viem da');
+
+      // Ghép nối các Mắt Xích Ngầm phù hợp theo hệ cơ quan
+      let matchedChains = [];
+      let issuesIdentified = [];
+
+      // Nhận diện theo thứ tự ưu tiên
+      if (hasSkin) { matchedChains.push(HiddenChainKnowledge.skin); issuesIdentified.push("Làn Da & Màng Ẩm"); }
+      if (hasThroat) { matchedChains.push(HiddenChainKnowledge.throat); issuesIdentified.push("Họng & Đường Thở Giao Mùa"); }
+      if (hasSinus) { matchedChains.push(HiddenChainKnowledge.sinus); issuesIdentified.push("Hốc Xoang & Ẩm Thấp Tỳ Vị"); }
+      if (hasCardio) { matchedChains.push(HiddenChainKnowledge.cardio); issuesIdentified.push("Tim Mạch & Khí Huyết Tứ Chi"); }
+      if (hasGut) { matchedChains.push(HiddenChainKnowledge.gut); issuesIdentified.push("Dạ Dày & Trục Não - Ruột"); }
+      if (hasColon) { matchedChains.push(HiddenChainKnowledge.colon); issuesIdentified.push("Đại Tràng & Nhu Động Ruột"); }
+      if (hasAppetite) { matchedChains.push(HiddenChainKnowledge.appetite); issuesIdentified.push("Vị Giác & Men Tiêu Hóa"); }
+      if (hasExcretory) { matchedChains.push(HiddenChainKnowledge.excretory); issuesIdentified.push("Thận Khí & Bài Tiết Đêm"); }
+      if (hasMouthHeat) { matchedChains.push(HiddenChainKnowledge.mouth_heat); issuesIdentified.push("Nhiệt Hỏa Gan Thận & Miệng"); }
+      if (hasSleep) { matchedChains.push(HiddenChainKnowledge.sleep); issuesIdentified.push("Khó Vào Giấc & Cortisol Đêm"); }
+      if (hasDeepSleep) { matchedChains.push(HiddenChainKnowledge.deep_sleep); issuesIdentified.push("Giấc Ngủ Nông & Gan Khí"); }
+      if (hasHeadache) { matchedChains.push(HiddenChainKnowledge.headache); issuesIdentified.push("Tuần Hoàn Máu Não & Cổ Gáy"); }
+      if (hasStress) { matchedChains.push(HiddenChainKnowledge.stress); issuesIdentified.push("Tuyến Thượng Thận & Tâm Trí"); }
+      if (hasBody) { matchedChains.push(HiddenChainKnowledge.body); issuesIdentified.push("Cơ Vai Gáy & Cột Sống"); }
+      if (hasCalcium) { matchedChains.push(HiddenChainKnowledge.calcium); issuesIdentified.push("Khung Xương & Dịch Khớp"); }
+      if (hasEndocrine) { matchedChains.push(HiddenChainKnowledge.endocrine); issuesIdentified.push("Hệ Nội Tiết & Chuyển Hóa Gan"); }
+      if (hasEnergy) { matchedChains.push(HiddenChainKnowledge.energy); issuesIdentified.push("Năng Lượng Ty Thể & Đường Huyết"); }
+      if (hasHair) { matchedChains.push(HiddenChainKnowledge.hair); issuesIdentified.push("Nang Tóc & Huyết Nuôi"); }
+      if (hasAllergy) { matchedChains.push(HiddenChainKnowledge.allergy); issuesIdentified.push("Miễn Dịch Ruột & Dị Ứng"); }
+
+      // Loại bỏ trùng lặp nếu có
+      matchedChains = Array.from(new Set(matchedChains));
+
+      let warmMsg = "";
+      if (matchedChains.length === 0) {
+        matchedChains = [HiddenChainKnowledge.general_detox];
+        warmMsg = "Thủy đã lắng nghe trọn vẹn những lời tâm sự của bạn. Cơ thể con người luôn có sự kết nối vi diệu giữa các hệ cơ quan: một biểu hiện bên ngoài xuất hiện là lúc các hệ bên trong đang cùng phát tín hiệu báo động. Thủy mời bạn cùng nhìn vào 'Mắt Xích Ngầm Thân Tâm' dưới đây để thấu hiểu căn nguyên gốc rễ cơ thể đang kêu cứu:";
+      } else {
+        const issueSummary = issuesIdentified.join(' • ');
+        warmMsg = `Thủy rất thấu cảm với những điều bạn đang trải qua. Cơ thể bạn đang phát tín hiệu ở: ${issueSummary}. Bạn đừng quá lo lắng nhé, triệu chứng bên ngoài không đứng một mình mà luôn nằm trong một **mắt xích liên kết ngầm** giữa các hệ cơ quan. Thủy bóc tách căn nguyên bên dưới để bạn lắng nghe trọn vẹn thông điệp của cơ thể mình:`;
+      }
+
+      // Render into Result Card
+      document.getElementById('airHeading').innerText = "Bóc Tách Mắt Xích Ngầm Thân Tâm";
+      document.getElementById('airMessageText').innerHTML = '<em>"' + warmMsg + '"</em>';
+
+      // Tìm container để render (nếu có airChainContainer thì dùng, không thì dùng airRemediesContent)
+      let container = document.getElementById('airChainContainer');
+      if (!container) {
+        container = document.getElementById('airRemediesContent');
+      }
+      container.innerHTML = '';
+
+      matchedChains.forEach(item => {
+        const box = document.createElement('div');
+        box.className = 'chain-box';
+
+        const diagramHtml = item.diagram.map(step => {
+          if (step === '➔') {
+            return '<span class="chain-arrow">➔</span>';
+          }
+          return '<span>' + step + '</span>';
+        }).join(' ');
+
+        box.innerHTML = `
+          <div class="chain-header">
+            <div class="chain-title-wrap">
+              <h5>${item.title}</h5>
+              <span class="chain-badge">${item.badge}</span>
+            </div>
+          </div>
+
+          <!-- 1. Biểu hiện nhìn thấy -->
+          <div class="chain-row">
+            <div class="chain-row-label">
+              Biểu hiện bên ngoài bạn đang thấy:
+            </div>
+            <div class="chain-row-content">
+              ${item.symptom}
+            </div>
+          </div>
+
+          <!-- 2. Sơ đồ mắt xích & Cơ chế ngầm bên trong -->
+          <div class="chain-row">
+            <div class="chain-row-label">
+              Mắt xích ngầm bên trong (Liên kết giữa các hệ):
+            </div>
+            <div class="chain-diagram-pill">
+              ${diagramHtml}
+            </div>
+            <div class="chain-row-content">
+              ${item.mechanism}
+            </div>
+          </div>
+
+          <!-- 3. Gốc rễ cần nuôi dưỡng -->
+          <div class="chain-row">
+            <div class="chain-row-content chain-root-highlight">
+              <div class="chain-row-label">
+                Gốc rễ thân tâm cơ thể đang khao khát:
+              </div>
+              <div>${item.rootCause}</div>
+            </div>
+          </div>
+
+          <!-- 4. Lời nhắn nhủ từ Thanh Thủy -->
+          <div class="chain-row">
+            <div class="chain-row-content chain-quote-highlight">
+              "${item.quote}"
+            </div>
+          </div>
+        `;
+
+        container.appendChild(box);
+      });
+
+      // Hiển thị card kết quả
+      const resultCard = document.getElementById('freeformResultCard');
+      resultCard.style.display = 'block';
+
+      // Cuộn êm đến kết quả
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function sendFreeformToZalo() {
+      const text = AppState.lastFreeformText || document.getElementById('freeformInput').value.trim();
+      if (!text) {
+        showToast("Bạn hãy gõ chia sẻ trước nhé!");
+        return;
+      }
+
+      const msg = `Chào Thanh Thủy, mình vừa chia sẻ trên App "Trạm Dinh Dưỡng":\n\n` +
+                  `" ${text} "\n\n` +
+                  `Thủy tư vấn và đồng hành hỗ trợ thêm cho mình nhé!`;
+
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://zalo.me/${AppState.zaloPhone}?text=${encoded}`, '_blank');
+    }
+
+    // Generate Personalized Insights & Render Dynamic Remedies for Test Flow
+    // Generate Personalized Insights & Render Dynamic Remedies for Test Flow
+    function generateResult() {
+      const symptoms = Array.from(AppState.checkedSymptoms);
+      const habitsDiet = AppState.habitDiet;
+      const habitsWater = AppState.habitWater;
+      const habitsRest = AppState.habitRest;
+
+      // 1. Ánh xạ các triệu chứng vào 7 Hệ Cơ Quan
+      const sysNervous = {
+        name: "Hệ Thần Kinh & Giấc Ngủ",
+        icon: "",
+        hasIssue: symptoms.includes('sleep_trouble') || symptoms.includes('morning_fatigue') || symptoms.includes('stress_anxiety') || symptoms.includes('headache_fog') || habitsRest.has('screen_till_sleep') || habitsRest.has('late_sleep') || habitsRest.has('restless'),
+        remedy: RemedyKnowledge.sleep,
+        issueDesc: "Đang có sự căng thẳng thần kinh thực vật, giấc ngủ chưa sâu",
+        okDesc: "Nhịp thần kinh an yên, giấc ngủ tương đối ổn định"
+      };
+
+      const sysDigestive = {
+        name: "Hệ Tiêu Hóa & Đường Ruột",
+        icon: "",
+        hasIssue: symptoms.includes('bloating_acid') || symptoms.includes('bowel_irregular') || symptoms.includes('emotional_eating') || habitsDiet.has('eating_out') || habitsDiet.has('eating_rushed') || habitsDiet.has('skip_breakfast_late_dinner'),
+        remedy: RemedyKnowledge.gut,
+        issueDesc: "Dạ dày & đường ruột đang ấm ách, tiêu hóa cần giảm tải",
+        okDesc: "Đường ruột êm dịu, tiêu hóa thanh nhẹ"
+      };
+
+      const sysRespiratory = {
+        name: "Hệ Hô Hấp & Miễn Dịch",
+        icon: "",
+        hasIssue: symptoms.includes('short_breath') || habitsWater.has('cold_water'),
+        remedy: RemedyKnowledge.throat,
+        issueDesc: "Hơi thở nông, cổ họng & phế quản nhạy cảm với khí lạnh",
+        okDesc: "Đường thở thông suốt, dung tích phổi tốt"
+      };
+
+      const sysCardio = {
+        name: "Hệ Tim Mạch & Khí Huyết",
+        icon: "",
+        hasIssue: symptoms.includes('headache_fog') || symptoms.includes('numb_cramp') || habitsWater.has('too_little') || habitsWater.has('caffeine_sweet'),
+        remedy: RemedyKnowledge.cardio,
+        issueDesc: "Khí huyết ngoại vi lưu thông chậm, dễ mệt khi đổi tư thế",
+        okDesc: "Tuần hoàn máu và nhịp tim ổn định"
+      };
+
+      const sysExcretory = {
+        name: "Hệ Bài Tiết & Gan Thận",
+        icon: "",
+        hasIssue: habitsWater.has('too_little') || habitsWater.has('caffeine_sweet') || habitsRest.has('late_sleep') || habitsDiet.has('skip_breakfast_late_dinner'),
+        remedy: RemedyKnowledge.excretory,
+        issueDesc: "Gan thận đang gánh tải độc tố, cần bù nước ấm rải đều",
+        okDesc: "Thải độc và bài tiết êm dịu"
+      };
+
+      const sysMusculoskeletal = {
+        name: "Hệ Cơ - Xương - Khớp",
+        icon: "",
+        hasIssue: symptoms.includes('neck_shoulder_pain') || symptoms.includes('numb_cramp'),
+        remedy: RemedyKnowledge.body,
+        issueDesc: "Cột sống căng cứng, thiếu vi khoáng Canxi/Magie",
+        okDesc: "Khớp và cơ bắp đàn hồi linh hoạt"
+      };
+
+      const sysEndocrine = {
+        name: "Hệ Nội Tiết & Làn Da",
+        icon: "",
+        hasIssue: symptoms.includes('afternoon_crash') || symptoms.includes('dry_skin_hair'),
+        remedy: RemedyKnowledge.skin,
+        issueDesc: "Đường huyết dao động chiều, làn da thiếu nước & collagen",
+        okDesc: "Nội tiết tố và độ ẩm làn da hài hòa"
+      };
+
+      const allSystems = [sysNervous, sysDigestive, sysRespiratory, sysCardio, sysExcretory, sysMusculoskeletal, sysEndocrine];
+      const troubledSystems = allSystems.filter(s => s.hasIssue);
+
+      // 2. Render Bảng Soi Chiếu 7 Hệ Cơ Thể
+      const statusListEl = document.getElementById('systemsStatusList');
+      if (statusListEl) {
+        statusListEl.innerHTML = '';
+        allSystems.forEach(s => {
+          const item = document.createElement('div');
+          item.className = 'system-status-item ' + (s.hasIssue ? 'is-warn' : '');
+          item.innerHTML = `
+            <div class="system-status-left">
+              <div>
+                <div class="system-status-name">${s.name}</div>
+                <div class="system-status-note">${s.hasIssue ? s.issueDesc : s.okDesc}</div>
+              </div>
+            </div>
+            <div>
+              <span class="system-status-badge ${s.hasIssue ? 'warning' : 'good'}">
+                ${s.hasIssue ? 'Cần vỗ về' : 'Ổn định'}
+              </span>
+            </div>
+          `;
+          statusListEl.appendChild(item);
+        });
+      }
+
+      // 3. Thông điệp tiêu đề tổng quan
+      let headline = "Cơ thể bạn đang muốn nói điều gì?";
+      let subtitle = "Đúc kết tình trạng 7 hệ cơ thể từ những tín hiệu bạn vừa giãi bày.";
+      let voiceMsg = "Mình đang hơi mỏi mệt rồi, mình cần được bạn cho nghỉ ngơi trước giờ ngủ, một ngụm nước ấm chậm rãi và những bữa ăn không còn phải vừa nhai vừa chạy đua với công việc...";
+      let moodIcon = "";
+
+      if (troubledSystems.length >= 4) {
+        headline = "Cơ thể bạn đang cần một khoảng lặng để thanh lọc và hồi phục toàn diện";
+        subtitle = "Nhiều hệ cơ quan đang cùng lúc phát tín hiệu quá tải nhịp sống.";
+        voiceMsg = "Ban ngày mình phải lo toan nhiều việc quá, đến đêm các cơ quan vẫn phải gồng mình làm việc. Hãy cho mình được uống nước ấm chậm rãi và ngủ sớm vài hôm bạn nhé!";
+        moodIcon = "";
+      } else if (sysNervous.hasIssue && sysDigestive.hasIssue) {
+        headline = "Trục Thần Kinh — Tiêu Hóa (Não - Ruột) đang cần được giảm tải";
+        subtitle = "Căng thẳng công việc đang tác động trực tiếp vào dạ dày và giấc ngủ đêm.";
+        voiceMsg = "Đầu óc mình đang chạy đua nhiều việc quá, làm cho bụng dạ cũng ấm ách theo. Hãy cho mình ăn chậm lại và thở sâu nhé!";
+        moodIcon = "";
+      } else if (sysNervous.hasIssue) {
+        headline = "Hệ Thần Kinh & Giấc Ngủ đang cần được nghỉ ngơi sâu";
+        subtitle = "Tâm trí đang làm việc quá tải, cơ thể cần được giải tỏa áp lực.";
+        voiceMsg = "Đầu óc mình đang căng cứng. Hãy buông chiếc điện thoại hoặc tivi xuống trước giờ ngủ 30 phút để bước vào giấc ngủ an lành bạn nhé!";
+        moodIcon = "";
+      } else if (sysDigestive.hasIssue) {
+        headline = "Hệ Tiêu Hóa đang cần được vỗ về và ăn thanh nhẹ";
+        subtitle = "Đường ruột đang phát tín hiệu ấm ách vì đồ ăn dầu mỡ hoặc thói quen ăn vội.";
+        voiceMsg = "Bụng mình ấm ách khó tiêu. Hãy cho mình ăn các món hấp mềm dễ chịu và nhai thật chậm rãi bạn nhé!";
+        moodIcon = "";
+      } else if (sysMusculoskeletal.hasIssue) {
+        headline = "Hệ Cơ - Xương - Khớp đang thiếu hụt khoáng chất và nước ấm";
+        subtitle = "Cơ bắp và cột sống đang gồng cứng sau nhiều giờ làm việc.";
+        voiceMsg = "Khớp và cơ của mình đang mỏi nhức vì thiếu nước và khoáng. Hãy nhớ uống từng ngụm nước ấm và vươn vai nhẹ nhàng nhé!";
+        moodIcon = "";
+      } else if (troubledSystems.length === 0) {
+        headline = "Các hệ cơ quan của bạn đang giữ nhịp cân bằng rất tốt!";
+        subtitle = "Bạn đang có sự lắng nghe và chăm sóc bản thân tích cực, hãy tiếp tục duy trì nhé.";
+        voiceMsg = "Cảm ơn bạn đã luôn yêu thương và lắng nghe mình mỗi ngày. Cứ tiếp tục chăm sóc thân tâm như thế này bạn nhé!";
+        moodIcon = "";
+      }
+
+      // Update Result Summary UI
+      // document.getElementById('resIcon').innerText = moodIcon;
+      document.getElementById('resHeadline').innerText = headline;
+      document.getElementById('resStateTitle').innerText = headline;
+      document.getElementById('resStateSubtitle').innerText = subtitle;
+      document.getElementById('resVoiceContent').innerText = '"' + voiceMsg + '"';
+      const thuyMsgEl = document.getElementById('thuyMessage');
+      if (thuyMsgEl) {
+        if (troubledSystems.length === 0 && symptoms.length === 0) {
+          thuyMsgEl.innerText = '"Thật tuyệt vời khi thấy cơ thể bạn đang giữ được sự điều hòa và năng lượng an lành như vậy! Hãy tiếp tục yêu thương, lắng nghe và nuôi dưỡng thân tâm mỗi ngày nhé. Thủy luôn ở đây nếu bạn muốn trò chuyện hoặc cùng Thủy lan tỏa lối sống khỏe mạnh này."';
+        } else {
+          thuyMsgEl.innerText = '"Chào bạn, Thủy rất hiểu cảm giác mệt mỏi hay bối rối khi cơ thể phát tín hiệu quá tải. Đừng lo lắng nhé, cơ thể chúng ta có khả năng tự phục hồi rất kỳ diệu nếu được thấu hiểu đúng cách. Thủy ở đây luôn sẵn sàng lắng nghe câu chuyện của bạn."';
+        }
+      }
+
+      // 4. Render Lời Khuyên Tức Thì (Ăn gì • Uống gì • Làm gì) cho các hệ đang cần hỗ trợ
+      renderDynamicRemediesForSystems(troubledSystems, symptoms);
+
+      // Transition to Result Screen
+      goToStep(3);
+    }
+
+    // Render Dynamic Remedies & Habits in Result View
+    function renderDynamicRemediesForSystems(troubledSystems, symptoms) {
+      const container = document.getElementById('dynamicRemediesList');
+      const subTitle = document.getElementById('immediateRemediesSub');
+      const balancedNotice = document.getElementById('balancedHabitsNotice');
+      const blockMind = document.getElementById('blockMind');
+      const blockGut = document.getElementById('blockGut');
+      const blockBody = document.getElementById('blockBody');
+      const pillarsHeading = document.getElementById('pillarsHeading');
+      const pillarsCard = document.getElementById('actionPillarsCard');
+      
+      container.innerHTML = '';
+
+      const isBalanced = (troubledSystems.length === 0 && symptoms.length === 0);
+
+      if (isBalanced) {
+        // TRƯỜNG HỢP CẢ 7 HỆ ĐỀU ỔN ĐỊNH (0 TRIỆU CHỨNG)
+        if (subTitle) {
+          subTitle.innerText = "Cơ thể bạn đang ở trạng thái cân bằng rất tốt! Dưới đây là cách giữ gìn và duy trì năng lượng an lành mỗi ngày:";
+        }
+
+        // Card duy trì lối sống lành mạnh
+        const card = document.createElement('div');
+        card.className = 'remedy-card-item';
+        card.innerHTML = `
+          <div class="remedy-card-header">
+            Nuôi Dưỡng & Duy Trì Phong Độ Cơ Thể Tự Nhiên
+          </div>
+          <div class="remedy-grid-3">
+            <div class="remedy-sub-col">
+              <strong>Nên uống gì:</strong>
+              Duy trì uống đủ nước ấm rải đều từng ngụm nhỏ suốt ngày. Thêm 1 ly nước ấm vào sáng sớm khi thức dậy và tách trà hoa cúc hoặc nước ấm nhẹ trước khi ngủ.
+            </div>
+            <div class="remedy-sub-col">
+              <strong>Nên ăn gì:</strong>
+              Ưu tiên ăn đa dạng thực phẩm tự nhiên, nhiều rau củ tươi theo mùa, các loại hạt lành mạnh. Ăn chậm, nhai kỹ và lắng nghe cảm giác no 8 phần của dạ dày.
+            </div>
+            <div class="remedy-sub-col">
+              <strong>Nên làm gì mỗi ngày:</strong>
+              Duy trì giấc ngủ trọn vẹn trước 22h30, tắt màn hình tivi/điện thoại trước 30 phút, đi bộ nhẹ nhàng 15-20 phút và dành 5 phút tĩnh lặng hít thở sâu đầu ngày.
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+
+        // Hiển thị thông báo cân bằng ở phần gốc rễ thói quen và ẩn các block cảnh báo
+        if (balancedNotice) balancedNotice.style.display = 'block';
+        if (blockMind) blockMind.style.display = 'none';
+        if (blockGut) blockGut.style.display = 'none';
+        if (blockBody) blockBody.style.display = 'none';
+
+        // Điều chỉnh 3 bước nuôi dưỡng thành 3 bước giữ nhịp
+        if (pillarsHeading) pillarsHeading.innerHTML = '3 Thói Quen Nhỏ Để Luôn Giữ Trọn Nhịp Thân Tâm';
+        const p1 = document.getElementById('pillarContent1');
+        const p2 = document.getElementById('pillarContent2');
+        const p3 = document.getElementById('pillarContent3');
+        if (p1) p1.innerHTML = '<h5>Thói quen 1: Khởi đầu ngày mới với một ly nước ấm</h5><p>Một ly nước ấm uống từng ngụm nhỏ ngay sau khi thức dậy giúp đánh thức hệ tiêu hóa, thanh lọc nhẹ nhàng và cấp ẩm cho các cơ quan.</p>';
+        if (p2) p2.innerHTML = '<h5>Thói quen 2: Ăn trong thảnh thơi và nhai kỹ</h5><p>Ăn chậm rãi, tận hưởng hương vị thực phẩm tự nhiên và lắng nghe cảm giác no vừa đủ để bảo tồn năng lượng cho cơ thể.</p>';
+        if (p3) p3.innerHTML = '<h5>Thói quen 3: Tắt màn hình và ngủ sâu trước 22h30</h5><p>Dành cho mình 30 phút tĩnh lặng trước khi ngủ, buông bỏ lo âu công việc để các tế bào có không gian tự chữa lành và tái tạo hoàn hảo.</p>';
+
+      } else {
+        // TRƯỜNG HỢP CÓ HỆ PHÁT TÍN HIỆU CẦN VỖ VỀ
+        if (subTitle) {
+          subTitle.innerText = "Dựa trên những cảm giác bạn vừa tích chọn, đây là cách vỗ về cơ thể ngay hôm nay:";
+        }
+
+        if (balancedNotice) balancedNotice.style.display = 'none';
+
+        // Ẩn/hiện các block thói quen gốc rễ phù hợp
+        const hasMindIssue = troubledSystems.some(s => s.name.includes('Thần Kinh')) || symptoms.includes('trouble_sleeping') || symptoms.includes('light_sleep') || symptoms.includes('stress_anxiety');
+        const hasGutIssue = troubledSystems.some(s => s.name.includes('Tiêu Hóa')) || symptoms.includes('bloated') || symptoms.includes('poor_appetite');
+        const hasBodyIssue = troubledSystems.some(s => s.name.includes('Cơ') || s.name.includes('Bài Tiết') || s.name.includes('Tim Mạch')) || symptoms.includes('neck_shoulder_pain') || symptoms.includes('numb_cramp') || symptoms.includes('headache_fog');
+
+        if (blockMind) blockMind.style.display = hasMindIssue ? 'block' : 'none';
+        if (blockGut) blockGut.style.display = hasGutIssue ? 'block' : 'none';
+        if (blockBody) blockBody.style.display = (hasBodyIssue || (!hasMindIssue && !hasGutIssue)) ? 'block' : 'none';
+
+        if (pillarsHeading) pillarsHeading.innerHTML = '3 Bước Nuôi Dưỡng Thân Tâm Cùng Bạn';
+        const p1 = document.getElementById('pillarContent1');
+        const p2 = document.getElementById('pillarContent2');
+        const p3 = document.getElementById('pillarContent3');
+        if (p1) p1.innerHTML = '<h5>Bước 1: Vỗ về tinh thần trước bữa ăn</h5><p>Trước khi ăn, hãy hít sâu vài hơi thở chậm, cảm ơn đĩa thức ăn trước mặt và nhai thật chậm. Khi tinh thần vui vẻ, thức ăn mới biến thành dinh dưỡng lành mạnh.</p>';
+        if (p2) p2.innerHTML = '<h5>Bước 2: Giảm tải cho dạ dày vào bữa tối</h5><p>Ăn tối sớm hơn một chút, hạn chế đồ chiên xào nhiều mỡ vào buổi tối để lá gan và dạ dày được thảnh thơi phục hồi khi bạn ngủ.</p>';
+        if (p3) p3.innerHTML = '<h5>Bước 3: Lắng nghe và điều chỉnh nhỏ mỗi ngày</h5><p>Không cần ăn kiêng kham khổ hay gượng ép. Chỉ cần một chút thay đổi nhỏ: một ly nước ấm buổi sáng, buông màn hình trước khi ngủ là cơ thể đã rất biết ơn bạn.</p>';
+
+        let itemsToRender = [];
+
+        // Lấy các lời khuyên từ các hệ đang có vấn đề
+        troubledSystems.forEach(s => {
+          if (s.remedy) itemsToRender.push(s.remedy);
+        });
+
+        // Bổ sung cụ thể theo triệu chứng đã tích chọn
+        if (symptoms.includes('headache_fog')) itemsToRender.push(RemedyKnowledge.headache);
+        if (symptoms.includes('stress_anxiety')) itemsToRender.push(RemedyKnowledge.stress);
+        if (symptoms.includes('numb_cramp')) itemsToRender.push(RemedyKnowledge.calcium);
+        if (symptoms.includes('afternoon_crash')) itemsToRender.push(RemedyKnowledge.energy);
+        if (symptoms.includes('dry_skin_hair')) itemsToRender.push(RemedyKnowledge.skin);
+
+        // Loại bỏ trùng lặp
+        itemsToRender = Array.from(new Set(itemsToRender));
+
+        itemsToRender.forEach(rem => {
+          const card = document.createElement('div');
+          card.className = 'remedy-card-item';
+          card.innerHTML = `
+            <div class="remedy-card-header">
+              ${rem.title}
+            </div>
+            <div class="remedy-grid-3">
+              <div class="remedy-sub-col">
+                <strong>Nên uống gì:</strong>
+                ${rem.drink}
+              </div>
+              <div class="remedy-sub-col">
+                <strong>Nên ăn gì (và tránh gì):</strong>
+                ${rem.food}
+              </div>
+              <div class="remedy-sub-col">
+                <strong>Nên làm gì ngay:</strong>
+                ${rem.action}
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+
+    // Handbook Accordion Toggle
+    function toggleAccordion(triggerEl) {
+      const card = triggerEl.closest('.hb-card');
+      card.classList.toggle('open');
+    }
+
+    // Handbook Search Filter
+    function filterHandbook(query) {
+      const q = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.hb-card');
+      cards.forEach(card => {
+        const keyword = card.getAttribute('data-keyword') || '';
+        const title = card.querySelector('.hb-title-text h4')?.innerText.toLowerCase() || '';
+        if (!q || keyword.includes(q) || title.includes(q)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Send summary to Zalo
+    function sendResultToZalo() {
+      const symptoms = Array.from(AppState.checkedSymptoms);
+      const headline = document.getElementById('resHeadline').innerText;
+      
+      const textMsg = `Chào Thanh Thủy, mình vừa làm bài test trên App "Trạm Dinh Dưỡng":\n` +
+                      ` Tình trạng cơ thể: ${headline}\n` +
+                      ` Tín hiệu ghi nhận: ${symptoms.length} điểm biểu hiện\n` +
+                      `Thủy tư vấn và đồng hành hỗ trợ thêm cho mình nhé!`;
+
+      const encodedMsg = encodeURIComponent(textMsg);
+      const zaloUrl = `https://zalo.me/${AppState.zaloPhone}?text=${encodedMsg}`;
+      window.open(zaloUrl, '_blank');
+    }
+
+    // Copy result text to clipboard
+    function shareOrCopyResult() {
+      const headline = document.getElementById('resHeadline').innerText;
+      const voice = document.getElementById('resVoiceContent').innerText;
+
+      const fullText = `[BẢN SOI CHIẾU TRẠM DINH DƯỠNG]\n` +
+                       ` Thông điệp: ${headline}\n` +
+                       ` Tiếng thì thầm cơ thể: ${voice}\n` +
+                       `• Lắng nghe cơ thể • Ăn đúng uống lành cùng Thanh Thủy.`;
+
+      navigator.clipboard.writeText(fullText).then(() => {
+        showToast("Đã sao chép Bản Soi Chiếu Trạm Dinh Dưỡng!");
+      }).catch(() => {
+        showToast("Bạn có thể chụp màn hình trang này lại nhé!");
+      });
+    }
+
+    // Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  
+    // --------------------------------------------------------------------------
+    // TÍNH NĂNG: SAO CHÉP CẨM NANG & XUẤT PDF / IN SỔ TAY
+    // --------------------------------------------------------------------------
+    function copyFullHandbook() {
+      const cards = document.querySelectorAll('.hb-card');
+      let text = "TRẠM DINH DƯỠNG — SỔ TAY CẨM NANG KHI CƠ THỂ LÊN TIẾNG\n";
+      text += "Lắng nghe cơ thể • Ăn đúng uống lành cùng Thanh Thủy (Hotline/Zalo: 0978 864 099)\n";
+      text += "====================================================\n\n";
+
+      cards.forEach((card, idx) => {
+        const title = card.querySelector('.hb-title-text h4')?.innerText || '';
+        const subtitle = card.querySelector('.hb-title-text span')?.innerText || '';
+        
+        text += `【 ${idx + 1}. ${title} 】\n`;
+        if (subtitle) text += `Tín hiệu ngầm: ${subtitle}\n`;
+
+        const rows = card.querySelectorAll('.hb-section-row');
+        rows.forEach(row => {
+          const label = row.querySelector('.hb-row-label')?.innerText.trim() || '';
+          const items = row.querySelectorAll('li');
+          text += `\n${label}:\n`;
+          items.forEach(li => {
+            text += `• ${li.innerText.trim()}\n`;
+          });
+        });
+
+        text += "\n----------------------------------------------------\n\n";
+      });
+
+      text += "Bạn hãy thử áp dụng những gợi ý tự nhiên trên để cảm nhận cơ thể của mình nhé.\n";
+      text += "— Thủy luôn ở đây sẵn sàng lắng nghe bạn: 0978 864 099\n";
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("Đã sao chép trọn bộ Cẩm Nang vào bộ nhớ tạm! Bạn có thể dán vào Zalo hoặc Ghi chú nhé.");
+        }).catch(() => {
+          fallbackCopyText(text);
+        });
+      } else {
+        fallbackCopyText(text);
+      }
+    }
+
+    function copyCardContent(btn, event) {
+      if (event) event.stopPropagation();
+
+      const card = btn.closest('.hb-card');
+      if (!card) return;
+
+      const title = card.querySelector('.hb-title-text h4')?.innerText || '';
+      const subtitle = card.querySelector('.hb-title-text span')?.innerText || '';
+
+      let text = `TRẠM DINH DƯỠNG — THANH THỦY (0978 864 099)\n`;
+      text += ` ${title}\n`;
+      if (subtitle) text += `Tín hiệu: ${subtitle}\n\n`;
+
+      const rows = card.querySelectorAll('.hb-section-row');
+      rows.forEach(row => {
+        const label = row.querySelector('.hb-row-label')?.innerText.trim() || '';
+        const items = row.querySelectorAll('li');
+        text += `${label}:\n`;
+        items.forEach(li => {
+          text += `• ${li.innerText.trim()}\n`;
+        });
+        text += "\n";
+      });
+
+      text += "— Thủy luôn ở đây sẵn sàng lắng nghe bạn: 0978 864 099";
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("Đã sao chép nội dung mục này! Bạn có thể dán vào Zalo hoặc gửi cho người thân nhé.");
+        }).catch(() => {
+          fallbackCopyText(text);
+        });
+      } else {
+        fallbackCopyText(text);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast("Đã sao chép nội dung vào bộ nhớ tạm!");
+      } catch (err) {
+        showToast("Không thể sao chép tự động, bạn hãy thử lại nhé.");
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function printHandbookPdf() {
+      // 1. Chuyển sang viewHandbook nếu đang ở view khác
+      switchView('viewHandbook');
+
+      // 2. Mở toàn bộ accordion để nội dung hiển thị đầy đủ khi in / xuất PDF
+      const cards = document.querySelectorAll('.hb-card');
+      cards.forEach(card => card.classList.add('open'));
+
+      showToast("Đang chuẩn bị bản in... Bạn hãy chọn 'Lưu dưới dạng PDF' (Save as PDF) nhé!");
+
+      // 3. Đợi render rồi kích hoạt hộp thoại in
+      setTimeout(() => {
+        window.print();
+      }, 350);
+    }
+
+  </script>
+
+</body>
+</html>

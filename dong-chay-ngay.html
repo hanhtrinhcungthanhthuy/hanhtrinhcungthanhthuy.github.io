@@ -842,6 +842,37 @@
       border-top: 1px solid var(--border-subtle);
       background: #FFFFFF;
     }
+  
+    .header-chat-btn {
+      background: var(--primary);
+      color: #FFFFFF !important;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 24px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.2);
+      white-space: nowrap;
+    }
+    .header-chat-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.3);
+    }
+    @media (max-width: 600px) {
+      .header-today {
+        display: none !important;
+      }
+      .header-chat-btn {
+        padding: 6px 14px;
+        font-size: 12.5px;
+      }
+    }
+  
   </style>
 </head>
 <body>
@@ -853,7 +884,10 @@
         <span class="brand-logo-text">DÒNG CHẢY NGÀY</span>
         <span class="brand-tag">Năng Lượng Ngày Cá Nhân & Ngày Thế Giới</span>
       </a>
-      <div class="header-today" id="headerTodayText">--/--/----</div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="header-today" id="headerTodayText">--/--/----</div>
+        <a href="https://zalo.me/0978864099" target="_blank" class="header-chat-btn">Trò chuyện cùng Thủy</a>
+      </div>
     </div>
   </header>
 
